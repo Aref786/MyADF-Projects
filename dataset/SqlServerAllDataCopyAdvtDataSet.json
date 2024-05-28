@@ -1,0 +1,12 @@
+{
+	"name": "SqlServerAllDataCopyAdvtDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerAllDataCopyAdvtLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}

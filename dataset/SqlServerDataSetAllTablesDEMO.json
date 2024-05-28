@@ -1,0 +1,26 @@
+{
+	"name": "SqlServerDataSetAllTablesDEMO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLinkedServiceDEMO",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "TablesNames",
+				"type": "varchar"
+			},
+			{
+				"name": "isActive",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TABLESNAMES"
+		}
+	}
+}

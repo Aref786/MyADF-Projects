@@ -1,0 +1,25 @@
+{
+	"name": "Product_Analysis",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlDataSetForDataFlow",
+						"type": "DatasetReference"
+					},
+					"name": "SALESDATA"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> SALESDATA"
+			]
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"name": "RestGetDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RestServiceLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}

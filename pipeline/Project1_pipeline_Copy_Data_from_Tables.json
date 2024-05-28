@@ -95,7 +95,13 @@
 							"outputs": [
 								{
 									"referenceName": "DS_sinkAllTablesCopyData",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"sinkTableName": {
+											"value": "@item().TableName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get-TablesNames",
+				"name": "GetTablesNames",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -32,7 +32,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get-TablesNames",
+						"activity": "GetTablesNames",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -41,7 +41,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get-TablesNames').output.value",
+						"value": "@activity('GetTablesNames').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,

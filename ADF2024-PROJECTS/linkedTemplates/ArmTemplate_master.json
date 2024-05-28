@@ -15,9 +15,35 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
 		},
+		"AzureSqlDatabase2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LinkedSerAzureSqlDatabaseDEMO'"
+		},
+		"LinkedServSqlServerADV_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedServSqlServerADV'",
+			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
+		},
+		"LinkedServSqlServerADV_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LinkedServSqlServerADV'"
+		},
+		"LookupSqlServer1LinkSer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LookupSqlServer1LinkSer'",
+			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
+		},
+		"LookupSqlServer1LinkSer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LookupSqlServer1LinkSer'"
+		},
+		"Lookup_AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Lookup_AzureBlobStorage1'"
 		},
 		"SqlServerLinkedServiceDEMO_connectionString": {
 			"type": "secureString",
@@ -40,6 +66,18 @@
 			"type": "string",
 			"defaultValue": "Aref"
 		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "aref-sql-server.database.windows.net"
@@ -49,6 +87,14 @@
 			"defaultValue": "DEMO"
 		},
 		"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"LinkedServSqlServerADV_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Aref"
 		},
@@ -93,8 +139,26 @@
 					"AzureSqlDatabase1_password": {
 						"value": "[parameters('AzureSqlDatabase1_password')]"
 					},
+					"AzureSqlDatabase2_password": {
+						"value": "[parameters('AzureSqlDatabase2_password')]"
+					},
 					"LinkedSerAzureSqlDatabaseDEMO_password": {
 						"value": "[parameters('LinkedSerAzureSqlDatabaseDEMO_password')]"
+					},
+					"Lookup_AzureBlobStorage1_connectionString": {
+						"value": "[parameters('Lookup_AzureBlobStorage1_connectionString')]"
+					},
+					"LinkedServSqlServerADV_connectionString": {
+						"value": "[parameters('LinkedServSqlServerADV_connectionString')]"
+					},
+					"LinkedServSqlServerADV_password": {
+						"value": "[parameters('LinkedServSqlServerADV_password')]"
+					},
+					"LookupSqlServer1LinkSer_connectionString": {
+						"value": "[parameters('LookupSqlServer1LinkSer_connectionString')]"
+					},
+					"LookupSqlServer1LinkSer_password": {
+						"value": "[parameters('LookupSqlServer1LinkSer_password')]"
 					},
 					"SqlServerLinkedServiceDEMO_connectionString": {
 						"value": "[parameters('SqlServerLinkedServiceDEMO_connectionString')]"
@@ -111,6 +175,15 @@
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
 					},
+					"AzureSqlDatabase2_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
+					},
 					"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server": {
 						"value": "[parameters('LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server')]"
 					},
@@ -123,12 +196,38 @@
 					"RestServiceLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('RestServiceLinkedService_properties_typeProperties_url')]"
 					},
+					"LinkedServSqlServerADV_properties_typeProperties_userName": {
+						"value": "[parameters('LinkedServSqlServerADV_properties_typeProperties_userName')]"
+					},
+					"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
+						"value": "[parameters('LookupSqlServer1LinkSer_properties_typeProperties_userName')]"
+					},
 					"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServerLinkedServiceDEMO_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "ADF2024-PROJECTS_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_0')]"
+			]
 		}
 	]
 }

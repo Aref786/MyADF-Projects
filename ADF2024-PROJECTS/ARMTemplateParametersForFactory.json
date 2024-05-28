@@ -11,7 +11,25 @@
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_password": {
+			"value": ""
+		},
+		"LinkedServSqlServerADV_connectionString": {
+			"value": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
+		},
+		"LinkedServSqlServerADV_password": {
+			"value": ""
+		},
+		"LookupSqlServer1LinkSer_connectionString": {
+			"value": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
+		},
+		"LookupSqlServer1LinkSer_password": {
+			"value": ""
+		},
+		"Lookup_AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
 		"SqlServerLinkedServiceDEMO_connectionString": {
@@ -29,6 +47,15 @@
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "Aref"
 		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "DEMO"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server": {
 			"value": "aref-sql-server.database.windows.net"
 		},
@@ -36,6 +63,12 @@
 			"value": "DEMO"
 		},
 		"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
+		"LinkedServSqlServerADV_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
+		"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
 			"value": "Aref"
 		},
 		"RestServiceLinkedService_properties_typeProperties_url": {

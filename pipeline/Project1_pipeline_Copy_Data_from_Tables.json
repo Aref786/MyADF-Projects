@@ -62,7 +62,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
-									"queryTimeout": "02:00:00",
+									"queryTimeout": "00:12:00",
 									"partitionOption": "None"
 								},
 								"enableStaging": false
@@ -70,7 +70,13 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerAllDataCopyAdvtDataSet",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": {
+											"value": "@item().TablesNames",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

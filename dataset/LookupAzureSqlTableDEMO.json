@@ -1,0 +1,16 @@
+{
+	"name": "LookupAzureSqlTableDEMO",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSerAzureSqlDatabaseDEMO",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "LookupStorage"
+		}
+	}
+}

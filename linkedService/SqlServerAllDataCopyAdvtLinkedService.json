@@ -1,0 +1,17 @@
+{
+	"name": "SqlServerAllDataCopyAdvtLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=AREF\\SQLEXPRESS;initial catalog=AdventureWorks",
+			"userName": "Aref",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4MmYyM2FlMi0yZjc0LTQ2ZTEtOTczYS1jMjBiYzEyNWIyNWIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

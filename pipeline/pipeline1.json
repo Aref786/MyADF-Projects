@@ -33,7 +33,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Web1').output.value",
+						"value": "@activity('Filter1').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -60,11 +60,32 @@
 										"supportRFC5988": "true"
 									}
 								},
+								"sink": {
+									"type": "JsonSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "JsonWriteSettings"
+									}
+								},
 								"enableStaging": false
 							},
 							"inputs": [
 								{
 									"referenceName": "RestGetDataSet",
+									"type": "DatasetReference",
+									"parameters": {
+										"id": {
+											"value": "@item().id",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DataSetJSON",
 									"type": "DatasetReference"
 								}
 							]
@@ -83,9 +104,24 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Web1').output.data",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@lessOrEquals(item().id,2)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"parameters": {
+			"id": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

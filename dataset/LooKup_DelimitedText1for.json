@@ -1,0 +1,23 @@
+{
+	"name": "LooKup_DelimitedText1for",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Lookup_AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Lookup",
+				"container": "allsales"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

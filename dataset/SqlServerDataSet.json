@@ -1,0 +1,21 @@
+{
+	"name": "SqlServerDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLinkedServiceDEMO",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AllTableNames"
+		}
+	}
+}

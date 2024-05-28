@@ -15,7 +15,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Employees"
+			"table": "webGet123"
 		}
 	}
 }

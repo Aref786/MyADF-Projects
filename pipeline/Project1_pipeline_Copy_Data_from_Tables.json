@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "CPPY-ALL-TABLES",
+				"name": "COPY-ALL-TABLES",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -88,7 +88,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
-											"value": "@item().TablesNames",
+											"value": "@item().TablesNames\n",
 											"type": "Expression"
 										}
 									}

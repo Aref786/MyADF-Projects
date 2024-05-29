@@ -29,7 +29,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedTextadvt",
+						"referenceName": "DS_Destineationdataflow",
 						"type": "DatasetReference"
 					},
 					"name": "Destineation"
@@ -40,10 +40,10 @@
 					"name": "JOINALLTABLES"
 				},
 				{
-					"name": "unionEMPANDEMPHIST"
+					"name": "selectALLTABLESDATA"
 				},
 				{
-					"name": "selectALLTABLESDATA"
+					"name": "join1"
 				}
 			],
 			"scriptLines": [
@@ -91,12 +91,11 @@
 				"     validateSchema: true,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false) ~> HRDepartment",
-				"HumanResourcesEmployee, unionEMPANDEMPHIST join(HumanResources.Employee@BusinessEntityID == unionEMP-AND-EMP=HIST@BusinessEntityID,",
+				"HumanResourcesEmployee, HumanResourcesEmployeeDepartmentHistory join(HumanResources.Employee@BusinessEntityID == unionEMP-AND-EMP=HIST@BusinessEntityID,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JOINALLTABLES",
-				"HumanResourcesEmployeeDepartmentHistory, HRDepartment union(byName: true)~> unionEMPANDEMPHIST",
 				"JOINALLTABLES select(mapColumn(",
 				"          BusinessEntityID = HumanResourcesEmployee@BusinessEntityID,",
 				"          OrganizationNode,",
@@ -115,6 +114,11 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> selectALLTABLESDATA",
+				"HumanResourcesEmployeeDepartmentHistory, HRDepartment join(HumanResourcesEmployeeDepartmentHistory@DepartmentID == HRDepartment@DepartmentID,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
 				"selectALLTABLESDATA sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",

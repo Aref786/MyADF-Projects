@@ -81,7 +81,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source3",
-				"source1, union1 join(source1@BusinessEntityID == source2@BusinessEntityID,",
+				"source1, union1 join(source1@BusinessEntityID == union1@BusinessEntityID,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",

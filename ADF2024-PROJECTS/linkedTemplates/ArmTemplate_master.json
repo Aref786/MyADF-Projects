@@ -19,6 +19,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
 		},
+		"AzureSqlDatabase3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
+		},
+		"LK_sinkAllTablesCopyData_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LK_sinkAllTablesCopyData'"
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LinkedSerAzureSqlDatabaseDEMO'"
@@ -45,6 +53,15 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Lookup_AzureBlobStorage1'"
 		},
+		"SqlServerAllDataCopyAdvtLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServerAllDataCopyAdvtLinkedService'",
+			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
+		},
+		"SqlServerAllDataCopyAdvtLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServerAllDataCopyAdvtLinkedService'"
+		},
 		"SqlServerLinkedServiceDEMO_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SqlServerLinkedServiceDEMO'",
@@ -53,6 +70,10 @@
 		"SqlServerLinkedServiceDEMO_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServerLinkedServiceDEMO'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
@@ -75,6 +96,30 @@
 			"defaultValue": "DEMO"
 		},
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"LK_sinkAllTablesCopyData_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"LK_sinkAllTablesCopyData_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"LK_sinkAllTablesCopyData_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Aref"
 		},
@@ -101,6 +146,10 @@
 		"RestServiceLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dummy.restapiexample.com/api/v1/employee/"
+		},
+		"SqlServerAllDataCopyAdvtLinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
 		},
 		"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
 			"type": "string",
@@ -142,29 +191,20 @@
 					"AzureSqlDatabase2_password": {
 						"value": "[parameters('AzureSqlDatabase2_password')]"
 					},
+					"AzureSqlDatabase3_password": {
+						"value": "[parameters('AzureSqlDatabase3_password')]"
+					},
+					"LK_sinkAllTablesCopyData_password": {
+						"value": "[parameters('LK_sinkAllTablesCopyData_password')]"
+					},
 					"LinkedSerAzureSqlDatabaseDEMO_password": {
 						"value": "[parameters('LinkedSerAzureSqlDatabaseDEMO_password')]"
 					},
 					"Lookup_AzureBlobStorage1_connectionString": {
 						"value": "[parameters('Lookup_AzureBlobStorage1_connectionString')]"
 					},
-					"LinkedServSqlServerADV_connectionString": {
-						"value": "[parameters('LinkedServSqlServerADV_connectionString')]"
-					},
-					"LinkedServSqlServerADV_password": {
-						"value": "[parameters('LinkedServSqlServerADV_password')]"
-					},
-					"LookupSqlServer1LinkSer_connectionString": {
-						"value": "[parameters('LookupSqlServer1LinkSer_connectionString')]"
-					},
-					"LookupSqlServer1LinkSer_password": {
-						"value": "[parameters('LookupSqlServer1LinkSer_password')]"
-					},
-					"SqlServerLinkedServiceDEMO_connectionString": {
-						"value": "[parameters('SqlServerLinkedServiceDEMO_connectionString')]"
-					},
-					"SqlServerLinkedServiceDEMO_password": {
-						"value": "[parameters('SqlServerLinkedServiceDEMO_password')]"
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
@@ -184,6 +224,24 @@
 					"AzureSqlDatabase2_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
 					},
+					"AzureSqlDatabase3_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase3_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]"
+					},
+					"LK_sinkAllTablesCopyData_properties_typeProperties_server": {
+						"value": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_server')]"
+					},
+					"LK_sinkAllTablesCopyData_properties_typeProperties_database": {
+						"value": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_database')]"
+					},
+					"LK_sinkAllTablesCopyData_properties_typeProperties_userName": {
+						"value": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_userName')]"
+					},
 					"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server": {
 						"value": "[parameters('LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server')]"
 					},
@@ -195,15 +253,6 @@
 					},
 					"RestServiceLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('RestServiceLinkedService_properties_typeProperties_url')]"
-					},
-					"LinkedServSqlServerADV_properties_typeProperties_userName": {
-						"value": "[parameters('LinkedServSqlServerADV_properties_typeProperties_userName')]"
-					},
-					"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
-						"value": "[parameters('LookupSqlServer1LinkSer_properties_typeProperties_userName')]"
-					},
-					"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
-						"value": "[parameters('SqlServerLinkedServiceDEMO_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -222,11 +271,67 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LinkedServSqlServerADV_connectionString": {
+						"value": "[parameters('LinkedServSqlServerADV_connectionString')]"
+					},
+					"LinkedServSqlServerADV_password": {
+						"value": "[parameters('LinkedServSqlServerADV_password')]"
+					},
+					"LookupSqlServer1LinkSer_connectionString": {
+						"value": "[parameters('LookupSqlServer1LinkSer_connectionString')]"
+					},
+					"LookupSqlServer1LinkSer_password": {
+						"value": "[parameters('LookupSqlServer1LinkSer_password')]"
+					},
+					"SqlServerAllDataCopyAdvtLinkedService_connectionString": {
+						"value": "[parameters('SqlServerAllDataCopyAdvtLinkedService_connectionString')]"
+					},
+					"SqlServerAllDataCopyAdvtLinkedService_password": {
+						"value": "[parameters('SqlServerAllDataCopyAdvtLinkedService_password')]"
+					},
+					"SqlServerLinkedServiceDEMO_connectionString": {
+						"value": "[parameters('SqlServerLinkedServiceDEMO_connectionString')]"
+					},
+					"SqlServerLinkedServiceDEMO_password": {
+						"value": "[parameters('SqlServerLinkedServiceDEMO_password')]"
+					},
+					"LinkedServSqlServerADV_properties_typeProperties_userName": {
+						"value": "[parameters('LinkedServSqlServerADV_properties_typeProperties_userName')]"
+					},
+					"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
+						"value": "[parameters('LookupSqlServer1LinkSer_properties_typeProperties_userName')]"
+					},
+					"SqlServerAllDataCopyAdvtLinkedService_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServerAllDataCopyAdvtLinkedService_properties_typeProperties_userName')]"
+					},
+					"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServerLinkedServiceDEMO_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ADF2024-PROJECTS_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_1')]"
 			]
 		}
 	]

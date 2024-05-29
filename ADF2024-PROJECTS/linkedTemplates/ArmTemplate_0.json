@@ -19,6 +19,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
 		},
+		"AzureSqlDatabase3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
+		},
+		"LK_sinkAllTablesCopyData_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LK_sinkAllTablesCopyData'"
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LinkedSerAzureSqlDatabaseDEMO'"
@@ -27,32 +35,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Lookup_AzureBlobStorage1'"
 		},
-		"LinkedServSqlServerADV_connectionString": {
+		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LinkedServSqlServerADV'",
-			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
-		},
-		"LinkedServSqlServerADV_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LinkedServSqlServerADV'"
-		},
-		"LookupSqlServer1LinkSer_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LookupSqlServer1LinkSer'",
-			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=AdventureWorks"
-		},
-		"LookupSqlServer1LinkSer_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LookupSqlServer1LinkSer'"
-		},
-		"SqlServerLinkedServiceDEMO_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SqlServerLinkedServiceDEMO'",
-			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=DEMO"
-		},
-		"SqlServerLinkedServiceDEMO_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SqlServerLinkedServiceDEMO'"
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
@@ -78,6 +63,30 @@
 			"type": "string",
 			"defaultValue": "Aref"
 		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"LK_sinkAllTablesCopyData_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"LK_sinkAllTablesCopyData_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"LK_sinkAllTablesCopyData_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
 		"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "aref-sql-server.database.windows.net"
@@ -93,18 +102,6 @@
 		"RestServiceLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dummy.restapiexample.com/api/v1/employee/"
-		},
-		"LinkedServSqlServerADV_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Aref"
-		},
-		"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Aref"
-		},
-		"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Aref"
 		}
 	},
 	"variables": {
@@ -268,6 +265,52 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase3_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase3_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"hostNameInCertificate": "",
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('AzureSqlDatabase3_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LK_sinkAllTablesCopyData')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_server')]",
+					"database": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"hostNameInCertificate": "",
+					"authenticationType": "SQL",
+					"userName": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LK_sinkAllTablesCopyData_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LinkedSerAzureSqlDatabaseDEMO')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -329,6 +372,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlDataSetAdvt')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -370,6 +426,27 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDataSetForDataFlow')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "HumanResources",
+					"table": "Employee"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase3')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -388,6 +465,38 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LinkedSerAzureSqlDatabaseDEMO')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_sinkAllTablesCopyData')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LK_sinkAllTablesCopyData",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"sinkTableName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "@split(dataset().sinkTableName,' . ')[0]",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@split(dataset().sinkTableName,' . ')[1]",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LK_sinkAllTablesCopyData')]"
 			]
 		},
 		{
@@ -415,28 +524,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LooKup_AzureSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "SelectedTableNames"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LooKup_DelimitedText1for')]",
+			"name": "[concat(parameters('factoryName'), '/DelimitedTextadvt')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -449,8 +537,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Lookup",
-						"container": "allsales"
+						"fileName": "HumanResources.Employee.csv",
+						"container": "alltables"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -461,106 +549,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/Lookup_AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/RestGetDataSet')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "RestServiceLinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"id": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {
-					"relativeUrl": {
-						"value": "@dataset().id",
-						"type": "Expression"
-					}
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/RestServiceLinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LinkedServSqlServerADV')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('LinkedServSqlServerADV_connectionString')]",
-					"userName": "[parameters('LinkedServSqlServerADV_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LinkedServSqlServerADV_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LookupSqlServer1LinkSer')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('LookupSqlServer1LinkSer_connectionString')]",
-					"userName": "[parameters('LookupSqlServer1LinkSer_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LookupSqlServer1LinkSer_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServerLinkedServiceDEMO')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SqlServerLinkedServiceDEMO_connectionString')]",
-					"userName": "[parameters('SqlServerLinkedServiceDEMO_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SqlServerLinkedServiceDEMO_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
 		{
@@ -629,12 +617,12 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LookupAzureSqlTableDEMO')]",
+			"name": "[concat(parameters('factoryName'), '/LooKup_AzureSqlTable1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "LinkedSerAzureSqlDatabaseDEMO",
+					"referenceName": "AzureSqlDatabase2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -642,46 +630,39 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "LookupStorage"
+					"table": "SelectedTableNames"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LinkedSerAzureSqlDatabaseDEMO')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LooKupSqlServerTable2Advt')]",
+			"name": "[concat(parameters('factoryName'), '/LooKup_DelimitedText1for')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "LookupSqlServer1LinkSer",
+					"referenceName": "Lookup_AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"TableName": {
-						"type": "string"
-					},
-					"TableSchema": {
-						"type": "string"
-					}
-				},
 				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
+				"type": "DelimitedText",
 				"typeProperties": {
-					"schema": {
-						"value": "@dataset().TableSchema",
-						"type": "Expression"
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Lookup",
+						"container": "allsales"
 					},
-					"table": {
-						"value": "@dataset().TableName",
-						"type": "Expression"
-					}
-				}
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LookupSqlServer1LinkSer')]"
+				"[concat(variables('factoryId'), '/linkedServices/Lookup_AzureBlobStorage1')]"
 			]
 		}
 	]

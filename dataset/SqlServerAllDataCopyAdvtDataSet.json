@@ -8,6 +8,9 @@
 		"parameters": {
 			"TableName": {
 				"type": "string"
+			},
+			"SCHEMA": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -15,11 +18,11 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": {
-				"value": "@split(dataset().TableName,'.')[0]",
+				"value": "@dataset().SCHEMA",
 				"type": "Expression"
 			},
 			"table": {
-				"value": "@split(dataset().TableName,'.')[1]",
+				"value": "@dataset().TableName",
 				"type": "Expression"
 			}
 		}

@@ -87,7 +87,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
-											"value": "@item().TablesNames\n",
+											"value": "@item().TBLNM\n",
+											"type": "Expression"
+										},
+										"SCHEMA": {
+											"value": "@item().SCHEMA",
 											"type": "Expression"
 										}
 									}
@@ -99,7 +103,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"sinkTableName": {
-											"value": "@item().TableName",
+											"value": "@item().TBLNM",
+											"type": "Expression"
+										},
+										"SCHEMA": {
+											"value": "@item().SCHEMA",
 											"type": "Expression"
 										}
 									}

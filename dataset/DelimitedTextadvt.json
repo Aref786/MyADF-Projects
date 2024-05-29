@@ -1,0 +1,23 @@
+{
+	"name": "DelimitedTextadvt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Lookup_AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "HumanResources.Employee.csv",
+				"container": "alltables"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

@@ -2,7 +2,7 @@
 	"name": "SqlServerDataSet",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SqlServerLinkedServiceDEMO",
+			"referenceName": "LinkedServSqlServerADV",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -14,8 +14,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "webGet123"
+			"schema": "HumanResources",
+			"table": "Department"
 		}
 	}
 }

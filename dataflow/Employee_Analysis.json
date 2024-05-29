@@ -1,5 +1,5 @@
 {
-	"name": "Product_Analysis",
+	"name": "Employee_Analysis",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -17,12 +17,25 @@
 						"type": "DatasetReference"
 					},
 					"name": "source2"
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedTextadvt",
+						"type": "DatasetReference"
+					},
+					"name": "source3"
 				}
 			],
 			"sinks": [],
 			"transformations": [
 				{
 					"name": "join1"
+				},
+				{
+					"name": "union1"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -46,6 +59,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
+				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source(output(",
 				"          BusinessEntityID as short,",
@@ -58,11 +72,49 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source2",
-				"source1, source2 join(source1@BusinessEntityID == source2@BusinessEntityID,",
+				"source(output(",
+				"          DepartmentID as short,",
+				"          Name as string,",
+				"          GroupName as string,",
+				"          ModifiedDate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source3",
+				"source1, union1 join(source1@BusinessEntityID == source2@BusinessEntityID,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1"
+				"     broadcast: 'auto')~> join1",
+				"source2, source3 union(byName: true)~> union1",
+				"join1 select(mapColumn(",
+				"          BusinessEntityID = source1@BusinessEntityID,",
+				"          NationalIDNumber,",
+				"          LoginID,",
+				"          OrganizationNode,",
+				"          OrganizationLevel,",
+				"          JobTitle,",
+				"          BirthDate,",
+				"          MaritalStatus,",
+				"          Gender,",
+				"          HireDate,",
+				"          SalariedFlag,",
+				"          VacationHours,",
+				"          SickLeaveHours,",
+				"          CurrentFlag,",
+				"          rowguid,",
+				"          ModifiedDate = source1@ModifiedDate,",
+				"          BusinessEntityID = union1@BusinessEntityID,",
+				"          DepartmentID,",
+				"          ShiftID,",
+				"          StartDate,",
+				"          EndDate,",
+				"          ModifiedDate = union1@ModifiedDate,",
+				"          Name,",
+				"          GroupName",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}

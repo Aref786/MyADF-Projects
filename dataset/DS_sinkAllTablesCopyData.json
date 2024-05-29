@@ -15,10 +15,13 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": {
-				"value": "@split(dataset().sinkTableName,' . ')[0]",
+				"value": "@split(dataset().sinkTableName,'.')[0]",
 				"type": "Expression"
 			},
-			"table": "@split(dataset().sinkTableName,' . ')[1]"
+			"table": {
+				"value": "@split(dataset().sinkTableName,'.')[1]",
+				"type": "Expression"
+			}
 		}
 	}
 }

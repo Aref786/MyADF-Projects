@@ -13,14 +13,14 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "DelimitedTextadvt",
+						"referenceName": "DS_EmpHist",
 						"type": "DatasetReference"
 					},
 					"name": "HumanResourcesEmployeeDepartmentHistory"
 				},
 				{
 					"dataset": {
-						"referenceName": "DelimitedTextadvt",
+						"referenceName": "DS_HRDept",
 						"type": "DatasetReference"
 					},
 					"name": "HRDepartment"
@@ -91,15 +91,13 @@
 				"     validateSchema: true,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false) ~> HRDepartment",
-				"HumanResourcesEmployee, HumanResourcesEmployeeDepartmentHistory join(HumanResources.Employee@BusinessEntityID == unionEMP-AND-EMP=HIST@BusinessEntityID,",
+				"HumanResourcesEmployee, HumanResourcesEmployeeDepartmentHistory join(HumanResourcesEmployee@BusinessEntityID == HumanResourcesEmployeeDepartmentHistory@BusinessEntityID,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JOINALLTABLES",
 				"JOINALLTABLES select(mapColumn(",
 				"          BusinessEntityID = HumanResourcesEmployee@BusinessEntityID,",
-				"          OrganizationNode,",
-				"          OrganizationLevel,",
 				"          JobTitle,",
 				"          BirthDate,",
 				"          MaritalStatus,",
@@ -108,9 +106,7 @@
 				"          VacationHours,",
 				"          SickLeaveHours,",
 				"          CurrentFlag,",
-				"          DepartmentID,",
-				"          Name,",
-				"          GroupName",
+				"          DepartmentID",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> selectALLTABLESDATA",

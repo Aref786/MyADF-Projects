@@ -65,11 +65,10 @@
 									"partitionOption": "None"
 								},
 								"sink": {
-									"type": "AzureSqlSink",
+									"type": "SqlServerSink",
 									"writeBehavior": "insert",
 									"sqlWriterUseTableLock": false,
-									"tableOption": "autoCreate",
-									"disableMetricsCollection": false
+									"tableOption": "autoCreate"
 								},
 								"enableStaging": false,
 								"translator": {
@@ -99,14 +98,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_sinkAllTablesCopyData",
+									"referenceName": "SqlServerTable2",
 									"type": "DatasetReference",
 									"parameters": {
-										"sinkTableName": {
+										"tblname": {
 											"value": "@item().TBLNM",
 											"type": "Expression"
 										},
-										"SCHEMA": {
+										"schema": {
 											"value": "@item().SCHEMA",
 											"type": "Expression"
 										}

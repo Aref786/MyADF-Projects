@@ -1,10 +1,6 @@
 {
 	"name": "DS_sinkAllTablesCopyData",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LK_sinkAllTablesCopyData",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"sinkTableName": {
 				"type": "string"

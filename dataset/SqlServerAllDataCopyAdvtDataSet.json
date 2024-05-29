@@ -15,11 +15,11 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": {
-				"value": "@split(dataset().TableName,' . ')[0]",
+				"value": "@split(dataset().TableName,'.')[0]",
 				"type": "Expression"
 			},
 			"table": {
-				"value": "@split(dataset().TableName,' . ')[1]",
+				"value": "@split(dataset().TableName,'.')[1]",
 				"type": "Expression"
 			}
 		}

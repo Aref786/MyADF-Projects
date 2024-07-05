@@ -2,14 +2,15 @@
 	"name": "DelimitedText2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorageForRestful_BoookerGet",
+			"referenceName": "AzureBlobStorageWebgetData",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"container": "employeedata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

@@ -36,6 +36,92 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "{\"status\":\"success\"",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "{\"status\":\"success\"",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "\"data\":{\"id\":2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "\"data\":{\"id\":2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "\"employee_name\":\"Garrett Winters\"",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "\"employee_name\":\"Garrett Winters\"",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "\"employee_salary\":170750",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "\"employee_salary\":170750",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "\"employee_age\":63",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "\"employee_age\":63",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "\"profile_image\":\"\"}",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "\"profile_image\":\"\"}",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "\"message\":\"Successfully! Record has been fetched.\"}",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "\"message\":\"Successfully! Record has been fetched.\"}",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,

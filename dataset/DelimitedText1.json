@@ -1,0 +1,52 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "GetAPIData",
+				"container": "allsales"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "{\"status\":\"success\"",
+				"type": "String"
+			},
+			{
+				"name": "\"data\":{\"id\":2",
+				"type": "String"
+			},
+			{
+				"name": "\"employee_name\":\"Garrett Winters\"",
+				"type": "String"
+			},
+			{
+				"name": "\"employee_salary\":170750",
+				"type": "String"
+			},
+			{
+				"name": "\"employee_age\":63",
+				"type": "String"
+			},
+			{
+				"name": "\"profile_image\":\"\"}",
+				"type": "String"
+			},
+			{
+				"name": "\"message\":\"Successfully! Record has been fetched.\"}",
+				"type": "String"
+			}
+		]
+	}
+}

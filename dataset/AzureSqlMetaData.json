@@ -1,0 +1,41 @@
+{
+	"name": "AzureSqlMetaData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlMetaDataTbl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "BaseURL",
+				"type": "text"
+			},
+			{
+				"name": "Key",
+				"type": "text"
+			},
+			{
+				"name": "description",
+				"type": "text"
+			},
+			{
+				"name": "Contentdate",
+				"type": "date"
+			},
+			{
+				"name": "file_type",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "metadata"
+		}
+	}
+}

@@ -26,7 +26,6 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "employeedata  ",
 							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},

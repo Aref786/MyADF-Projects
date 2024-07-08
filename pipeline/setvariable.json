@@ -1,9 +1,9 @@
 {
-	"name": "pipeline3",
+	"name": "setvariable",
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "AzureSqlMetaDataTable",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -25,8 +25,34 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "AzureSqlMetaDataTable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Contentdate",
+					"value": ""
+				}
 			}
 		],
+		"variables": {
+			"Contentdate": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }

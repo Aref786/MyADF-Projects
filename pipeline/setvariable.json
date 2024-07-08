@@ -43,17 +43,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "Contentdate",
+					"variableName": "CurrentData",
 					"value": {
-						"value": "@concat(activity('AzureSqlMetaDataTable').output.firstRow.Contentdate, ' - ', formatDateTime(utcnow(), 'yyyy-MM-dd'))",
+						"value": "@formatDateTime(utcnow(), 'yyyy-MM-dd')",
 						"type": "Expression"
 					}
 				}
 			}
 		],
 		"variables": {
-			"Contentdate": {
-				"type": "String"
+			"CurrentData": {
+				"type": "String",
+				"defaultValue": "01-jan-2024"
 			}
 		},
 		"annotations": []

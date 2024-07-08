@@ -26,7 +26,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFileName": "*",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -46,72 +46,83 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "{\"status\":\"success\"",
+									"name": "ProductID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "{\"status\":\"success\"",
+									"name": "ProductID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "\"data\":{\"id\":2",
+									"name": "Date",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "\"data\":{\"id\":2",
+									"name": "Date",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "\"employee_name\":\"Garrett Winters\"",
+									"name": "Zip",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "\"employee_name\":\"Garrett Winters\"",
+									"name": "Zip",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "\"employee_salary\":170750",
+									"name": "Units",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "\"employee_salary\":170750",
+									"name": "Units",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "\"employee_age\":63",
+									"name": "Revenue",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "\"employee_age\":63",
+									"name": "Revenue",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "\"profile_image\":\"\"}",
+									"name": "Country",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "\"profile_image\":\"\"}",
+									"name": "Country",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FileName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FileName",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -126,7 +137,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText3",
+						"referenceName": "DelimitedText4",
 						"type": "DatasetReference"
 					}
 				],

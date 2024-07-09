@@ -169,6 +169,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
 					"url": "https://prod2-24.southindia.logic.azure.com:443/workflows/acd73e3435a04fd285e7e41ad4445c06/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=QgnSKhbIHJidxWbtYuxjoexCIBPNjbOAJRw1RLfukOs",
 					"body": {
 						"value": "{\n    \"pipelinename\":\"@{pipeline().Pipeline}\",\n    \"Pipeline-id\":\"@{pipeline().RunId}\"\n}",

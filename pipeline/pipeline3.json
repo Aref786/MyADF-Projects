@@ -38,7 +38,11 @@
 		"parameters": {
 			"Childitems": {
 				"type": "array",
-				"defaultValue": "{\"INdia\",\"usa\",\"UK\"}"
+				"defaultValue": [
+					"India",
+					"USA",
+					"UK"
+				]
 			}
 		},
 		"variables": {

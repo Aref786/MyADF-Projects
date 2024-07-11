@@ -117,7 +117,13 @@
 							"inputs": [
 								{
 									"referenceName": "DS_AzureSqlForLookupCopy",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"SchemaName": {
+											"value": "@variables('SchemaName')",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

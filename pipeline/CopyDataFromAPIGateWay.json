@@ -16,12 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "GET",
-					"url": "https://dummy.restapiexample.com/api/v1/employees"
+					"url": "https://jsonplaceholder.typicode.com/posts"
 				}
 			},
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Filter1",
@@ -211,7 +213,14 @@
 						{
 							"name": "Delete1",
 							"type": "Delete",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Copy data-TO Table",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,

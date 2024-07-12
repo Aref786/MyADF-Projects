@@ -119,11 +119,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"ProductID": {
-				"type": "object"
-			}
-		},
 		"variables": {
 			"Revenue": {
 				"type": "Array"

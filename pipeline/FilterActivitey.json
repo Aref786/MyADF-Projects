@@ -110,7 +110,7 @@
 							"typeProperties": {
 								"variableName": "Revenue",
 								"value": {
-									"value": "@equals(int(item().ProductID), 1076)",
+									"value": "@greaterOrEquals(int(item().ProductID), 1076)\n",
 									"type": "Expression"
 								}
 							}

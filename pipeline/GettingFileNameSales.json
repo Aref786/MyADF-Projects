@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DSGetMetaSales",
+						"referenceName": "DelimitedText6",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -64,7 +64,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@startswith(item().name,'Sales')",
+									"value": "@startswith(variables('RawFilename'),'Sales')",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [

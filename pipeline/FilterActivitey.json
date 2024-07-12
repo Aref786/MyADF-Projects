@@ -110,7 +110,7 @@
 							"typeProperties": {
 								"variableName": "Revenue",
 								"value": {
-									"value": "@greaterOrEquals(int(item().ProductID), 1076)\n",
+									"value": "@int(item().ProductID)",
 									"type": "Expression"
 								}
 							}
@@ -119,6 +119,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"ProductID": {
+				"type": "object"
+			}
+		},
 		"variables": {
 			"Revenue": {
 				"type": "Array"

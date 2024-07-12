@@ -110,7 +110,7 @@
 							"typeProperties": {
 								"variableName": "Revenue",
 								"value": {
-									"value": "@item().ProductID",
+									"value": "@item().int(ProductID)",
 									"type": "Expression"
 								}
 							}

@@ -2,7 +2,7 @@
 	"name": "AzureSqlDataSetAdvt",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "LK_AzureSqlDatabase_lookup",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -29,8 +29,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "HumanResources",
-			"table": "Department"
+			"schema": "dbo",
+			"table": "TablesNames"
 		}
 	}
 }

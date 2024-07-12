@@ -121,7 +121,7 @@
 		],
 		"variables": {
 			"Revenue": {
-				"type": "Array"
+				"type": "Integer"
 			}
 		},
 		"annotations": []

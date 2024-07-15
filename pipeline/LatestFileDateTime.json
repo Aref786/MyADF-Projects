@@ -75,10 +75,7 @@
 								},
 								"fieldList": [
 									"lastModified",
-									{
-										"value": "@item().name",
-										"type": "Expression"
-									}
+									"itemName"
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",

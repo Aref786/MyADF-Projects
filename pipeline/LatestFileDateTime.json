@@ -51,7 +51,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Get Metadata2",
+							"name": "Get lastModifiedDate",
 							"type": "GetMetadata",
 							"dependsOn": [],
 							"policy": {
@@ -85,11 +85,61 @@
 									"type": "DelimitedTextReadSettings"
 								}
 							}
+						},
+						{
+							"name": "If Condition1",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "Get lastModifiedDate",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@greater(formatDateTime(activity('Get lastModifiedDate').output.lastModified, 'yyyyddmmHHmmss'), formatDateTime(variables('PriviousDate'), 'yyyyddmmHHmmss'))",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Set variable1",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "LatestDate",
+											"value": {
+												"value": "@activity('Get lastModifiedDate').output.lastModified",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
 						}
 					]
 				}
 			}
 		],
+		"variables": {
+			"PriviousDate": {
+				"type": "String",
+				"defaultValue": "2022-07-12T10:57:00Z"
+			},
+			"LatestDate": {
+				"type": "String"
+			},
+			"filename": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }

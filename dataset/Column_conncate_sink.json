@@ -1,0 +1,16 @@
+{
+	"name": "Column_conncate_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlMetaDataTbl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Conncate_column"
+		}
+	}
+}

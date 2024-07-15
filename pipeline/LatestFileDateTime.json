@@ -65,7 +65,13 @@
 							"typeProperties": {
 								"dataset": {
 									"referenceName": "DelimitedText8",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"File": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								},
 								"fieldList": [
 									"lastModified"

@@ -105,7 +105,7 @@
 								},
 								"ifTrueActivities": [
 									{
-										"name": "Set variable1",
+										"name": "Set LatestDate",
 										"type": "SetVariable",
 										"dependsOn": [],
 										"policy": {
@@ -122,6 +122,30 @@
 										}
 									}
 								]
+							}
+						},
+						{
+							"name": "Set-priviousDate",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "If Condition1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "PriviousDate",
+								"value": {
+									"value": "@activity('Get lastModifiedDate').output.lastModified",
+									"type": "Expression"
+								}
 							}
 						}
 					]

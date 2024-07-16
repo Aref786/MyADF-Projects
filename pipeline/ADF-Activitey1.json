@@ -269,6 +269,7 @@
 			},
 			{
 				"name": "Set StudentName",
+				"description": "",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -286,7 +287,7 @@
 				"typeProperties": {
 					"variableName": "StudentName",
 					"value": {
-						"value": "@activity('Lookup1').output.firstRow.StudentName",
+						"value": "Aref",
 						"type": "Expression"
 					}
 				}

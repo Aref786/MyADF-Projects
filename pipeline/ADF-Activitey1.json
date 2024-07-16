@@ -239,7 +239,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "SP for Inserting all Records  ",
+						"activity": "SP for Inserting all Records",
 						"dependencyConditions": [
 							"Succeeded"
 						]

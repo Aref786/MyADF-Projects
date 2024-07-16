@@ -69,7 +69,7 @@
 							}
 						},
 						{
-							"name": "Lookup1",
+							"name": "FileinsideCount",
 							"type": "Lookup",
 							"dependsOn": [
 								{
@@ -110,6 +110,25 @@
 									}
 								},
 								"firstRowOnly": false
+							}
+						},
+						{
+							"name": "FilteringSizeCopying",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "FileinsideCount",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@greater(activity('FileinsideCount').output.count,0 )",
+									"type": "Expression"
+								}
 							}
 						}
 					]

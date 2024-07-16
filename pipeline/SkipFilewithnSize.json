@@ -52,7 +52,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set variable1",
+							"name": "Set FileName",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
@@ -73,7 +73,7 @@
 							"type": "Lookup",
 							"dependsOn": [
 								{
-									"activity": "Set variable1",
+									"activity": "Set FileName",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -108,7 +108,8 @@
 											"type": "Expression"
 										}
 									}
-								}
+								},
+								"firstRowOnly": false
 							}
 						}
 					]

@@ -164,7 +164,7 @@
 				]
 			},
 			{
-				"name": "Stored procedure1",
+				"name": "SP for Inserting all Records",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -239,7 +239,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "Stored procedure1",
+						"activity": "SP for Inserting all Records  ",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -356,7 +356,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "Stored DELETING",
+						"activity": "Stored procedure1_copy1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -373,7 +373,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "\n\nSELECT\n\t\tStudentid,\n\t\tStudentCode,\n\t\tStudentName,\n\t\tTotalMarks,\n\t\tCreatedBy,\n\t\tUpdatedDateTime,\n\t\tisDeleted\nFROM [Dim].[StudentScores]",
+						"sqlReaderQuery": "SELECT\n    StudentId,\n    StudentCode,\n    StudentName,\n    TotalMarks,\n    CreatedBy,\n    UpdatedDateTime,\n    IsDeleted\nFROM [Dim].[StudentScores];\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -382,6 +382,33 @@
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Stored procedure1_copy1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Stored DELETING",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[sp_dim_tblStudentScores]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlMetaDataTbl",
+					"type": "LinkedServiceReference"
 				}
 			}
 		],

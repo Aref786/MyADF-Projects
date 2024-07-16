@@ -1,26 +1,8 @@
 {
 	"name": "DS_sinkAllTablesCopyData",
 	"properties": {
-		"parameters": {
-			"sinkTableName": {
-				"type": "string"
-			},
-			"SCHEMA": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": {
-				"value": "@dataset().SCHEMA",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().sinkTableName",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	}
 }

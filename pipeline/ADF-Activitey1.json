@@ -191,7 +191,7 @@
 				}
 			},
 			{
-				"name": "Stored procedure2",
+				"name": "Stored-Update-StageTable",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -213,11 +213,17 @@
 					"storedProcedureName": "[dbo].[sp_UpdateStudentName]",
 					"storedProcedureParameters": {
 						"StudentId": {
-							"value": "",
+							"value": {
+								"value": "@variables('Studentid')",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"StudentNameToUpdate": {
-							"value": "",
+							"value": {
+								"value": "@variables('StudentName')",
+								"type": "Expression"
+							},
 							"type": "String"
 						}
 					}
@@ -258,7 +264,7 @@
 						"referenceName": "AzureSqlTable10",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
@@ -276,7 +282,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "StudentName",
+					"value": {
+						"value": "@activity('Lookup1').output.firstRow.StudentName",
+						"type": "Expression"
+					}
+				}
 			},
 			{
 				"name": "Set Studentid",
@@ -293,7 +306,83 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Studentid",
+					"value": {
+						"value": "@activity('Lookup1').output.firstRow.Studentid",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Stored DELETING",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Stored-Update-StageTable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[Sp_Delete]",
+					"storedProcedureParameters": {
+						"Studentid": {
+							"value": {
+								"value": "@variables('Studentid')",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlMetaDataTbl",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Lookup -from Dim_StudenSourec",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Stored DELETING",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "\n\nSELECT\n\t\tStudentid,\n\t\tStudentCode,\n\t\tStudentName,\n\t\tTotalMarks,\n\t\tCreatedBy,\n\t\tUpdatedDateTime,\n\t\tisDeleted\nFROM [Dim].[StudentScores]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable11",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
 			}
 		],
 		"variables": {

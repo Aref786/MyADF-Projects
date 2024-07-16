@@ -1,6 +1,10 @@
 {
 	"name": "SqlServerTable2",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LookupSqlServer1LinkSer",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []

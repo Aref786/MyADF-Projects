@@ -7,6 +7,26 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ADF2024-PROJECTS"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureBlobStorage3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage3'"
+		},
+		"AzureBlobStorage4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage4'"
+		},
+		"AzureBlobStorageForRestful_BoookerGet_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageForRestful_BoookerGet'"
+		},
 		"AzureBlobStorageWebgetData_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageWebgetData'"
@@ -22,6 +42,26 @@
 		"AzureSqlDatabase3_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase3'"
+		},
+		"AzureSqlDatabase4_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase4'"
+		},
+		"AzureSqlDatabase5_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase5'"
+		},
+		"AzureSqlDatabase6_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase6'"
+		},
+		"AzureSqlMetaDataTbl_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlMetaDataTbl'"
+		},
+		"LK_AzureSqlDatabase_lookup_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LK_AzureSqlDatabase_lookup'"
 		},
 		"LK_sinkAllTablesCopyData_password": {
 			"type": "secureString",
@@ -71,10 +111,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServerLinkedServiceDEMO'"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "aref-sql-server.database.windows.net"
@@ -111,6 +147,54 @@
 			"type": "string",
 			"defaultValue": "Aref"
 		},
+		"AzureSqlDatabase5_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase5_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"AzureSqlDatabase5_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"AzureSqlDatabase6_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase6_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"AzureSqlDatabase6_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"AzureSqlMetaDataTbl_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlMetaDataTbl_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"AzureSqlMetaDataTbl_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"LK_AzureSqlDatabase_lookup_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aref-sql-server.database.windows.net"
+		},
+		"LK_AzureSqlDatabase_lookup_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DEMO"
+		},
+		"LK_AzureSqlDatabase_lookup_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
 		"LK_sinkAllTablesCopyData_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "aref-sql-server.database.windows.net"
@@ -142,6 +226,10 @@
 		"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Aref"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://restful-booker.herokuapp.com/"
 		},
 		"RestServiceLinkedService_properties_typeProperties_url": {
 			"type": "string",
@@ -182,6 +270,21 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureBlobStorage3_connectionString": {
+						"value": "[parameters('AzureBlobStorage3_connectionString')]"
+					},
+					"AzureBlobStorage4_connectionString": {
+						"value": "[parameters('AzureBlobStorage4_connectionString')]"
+					},
+					"AzureBlobStorageForRestful_BoookerGet_connectionString": {
+						"value": "[parameters('AzureBlobStorageForRestful_BoookerGet_connectionString')]"
+					},
 					"AzureBlobStorageWebgetData_connectionString": {
 						"value": "[parameters('AzureBlobStorageWebgetData_connectionString')]"
 					},
@@ -194,6 +297,21 @@
 					"AzureSqlDatabase3_password": {
 						"value": "[parameters('AzureSqlDatabase3_password')]"
 					},
+					"AzureSqlDatabase4_connectionString": {
+						"value": "[parameters('AzureSqlDatabase4_connectionString')]"
+					},
+					"AzureSqlDatabase5_password": {
+						"value": "[parameters('AzureSqlDatabase5_password')]"
+					},
+					"AzureSqlDatabase6_password": {
+						"value": "[parameters('AzureSqlDatabase6_password')]"
+					},
+					"AzureSqlMetaDataTbl_password": {
+						"value": "[parameters('AzureSqlMetaDataTbl_password')]"
+					},
+					"LK_AzureSqlDatabase_lookup_password": {
+						"value": "[parameters('LK_AzureSqlDatabase_lookup_password')]"
+					},
 					"LK_sinkAllTablesCopyData_password": {
 						"value": "[parameters('LK_sinkAllTablesCopyData_password')]"
 					},
@@ -202,9 +320,6 @@
 					},
 					"Lookup_AzureBlobStorage1_connectionString": {
 						"value": "[parameters('Lookup_AzureBlobStorage1_connectionString')]"
-					},
-					"AzureBlobStorage1_connectionString": {
-						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
@@ -233,6 +348,42 @@
 					"AzureSqlDatabase3_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase3_properties_typeProperties_userName')]"
 					},
+					"AzureSqlDatabase5_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase5_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase5_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase5_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase5_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase5_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase6_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase6_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase6_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase6_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase6_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase6_properties_typeProperties_userName')]"
+					},
+					"AzureSqlMetaDataTbl_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlMetaDataTbl_properties_typeProperties_server')]"
+					},
+					"AzureSqlMetaDataTbl_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlMetaDataTbl_properties_typeProperties_database')]"
+					},
+					"AzureSqlMetaDataTbl_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlMetaDataTbl_properties_typeProperties_userName')]"
+					},
+					"LK_AzureSqlDatabase_lookup_properties_typeProperties_server": {
+						"value": "[parameters('LK_AzureSqlDatabase_lookup_properties_typeProperties_server')]"
+					},
+					"LK_AzureSqlDatabase_lookup_properties_typeProperties_database": {
+						"value": "[parameters('LK_AzureSqlDatabase_lookup_properties_typeProperties_database')]"
+					},
+					"LK_AzureSqlDatabase_lookup_properties_typeProperties_userName": {
+						"value": "[parameters('LK_AzureSqlDatabase_lookup_properties_typeProperties_userName')]"
+					},
 					"LK_sinkAllTablesCopyData_properties_typeProperties_server": {
 						"value": "[parameters('LK_sinkAllTablesCopyData_properties_typeProperties_server')]"
 					},
@@ -251,8 +402,8 @@
 					"LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_userName": {
 						"value": "[parameters('LinkedSerAzureSqlDatabaseDEMO_properties_typeProperties_userName')]"
 					},
-					"RestServiceLinkedService_properties_typeProperties_url": {
-						"value": "[parameters('RestServiceLinkedService_properties_typeProperties_url')]"
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -266,6 +417,49 @@
 				"mode": "incremental",
 				"templateLink": {
 					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"RestServiceLinkedService_properties_typeProperties_url": {
+						"value": "[parameters('RestServiceLinkedService_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ADF2024-PROJECTS_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "ADF2024-PROJECTS_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
 					"contentVersion": "1.0.0.0"
 				},
 				"parameters": {
@@ -311,17 +505,17 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_0')]"
+				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_2')]"
 			]
 		},
 		{
-			"name": "ADF2024-PROJECTS_ArmTemplate_2",
+			"name": "ADF2024-PROJECTS_ArmTemplate_4",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "2018-02-01",
 			"properties": {
 				"mode": "incremental",
 				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
 					"contentVersion": "1.0.0.0"
 				},
 				"parameters": {
@@ -331,7 +525,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_1')]"
+				"[resourceId('Microsoft.Resources/deployments', 'ADF2024-PROJECTS_ArmTemplate_3')]"
 			]
 		}
 	]

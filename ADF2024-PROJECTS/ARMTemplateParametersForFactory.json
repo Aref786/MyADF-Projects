@@ -5,6 +5,21 @@
 		"factoryName": {
 			"value": "ADF2024-PROJECTS"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage4_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorageForRestful_BoookerGet_connectionString": {
+			"value": ""
+		},
 		"AzureBlobStorageWebgetData_connectionString": {
 			"value": ""
 		},
@@ -15,6 +30,21 @@
 			"value": ""
 		},
 		"AzureSqlDatabase3_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase4_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase5_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase6_password": {
+			"value": ""
+		},
+		"AzureSqlMetaDataTbl_password": {
+			"value": ""
+		},
+		"LK_AzureSqlDatabase_lookup_password": {
 			"value": ""
 		},
 		"LK_sinkAllTablesCopyData_password": {
@@ -50,9 +80,6 @@
 		"SqlServerLinkedServiceDEMO_password": {
 			"value": ""
 		},
-		"AzureBlobStorage1_connectionString": {
-			"value": ""
-		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "aref-sql-server.database.windows.net"
 		},
@@ -80,6 +107,42 @@
 		"AzureSqlDatabase3_properties_typeProperties_userName": {
 			"value": "Aref"
 		},
+		"AzureSqlDatabase5_properties_typeProperties_server": {
+			"value": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase5_properties_typeProperties_database": {
+			"value": "DEMO"
+		},
+		"AzureSqlDatabase5_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
+		"AzureSqlDatabase6_properties_typeProperties_server": {
+			"value": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase6_properties_typeProperties_database": {
+			"value": "DEMO"
+		},
+		"AzureSqlDatabase6_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
+		"AzureSqlMetaDataTbl_properties_typeProperties_server": {
+			"value": "aref-sql-server.database.windows.net"
+		},
+		"AzureSqlMetaDataTbl_properties_typeProperties_database": {
+			"value": "DEMO"
+		},
+		"AzureSqlMetaDataTbl_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
+		"LK_AzureSqlDatabase_lookup_properties_typeProperties_server": {
+			"value": "aref-sql-server.database.windows.net"
+		},
+		"LK_AzureSqlDatabase_lookup_properties_typeProperties_database": {
+			"value": "DEMO"
+		},
+		"LK_AzureSqlDatabase_lookup_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
 		"LK_sinkAllTablesCopyData_properties_typeProperties_server": {
 			"value": "aref-sql-server.database.windows.net"
 		},
@@ -103,6 +166,9 @@
 		},
 		"LookupSqlServer1LinkSer_properties_typeProperties_userName": {
 			"value": "Aref"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://restful-booker.herokuapp.com/"
 		},
 		"RestServiceLinkedService_properties_typeProperties_url": {
 			"value": "https://dummy.restapiexample.com/api/v1/employee/"

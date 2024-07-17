@@ -1,0 +1,60 @@
+{
+	"name": "SelectActivity",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_Data_flow_selectAct",
+						"type": "DatasetReference"
+					},
+					"name": "RowCsvFile"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable12",
+						"type": "DatasetReference"
+					},
+					"name": "SinkDataSelectc"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SelectColumns"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductID as string,",
+				"          Date as date,",
+				"          Zip as integer,",
+				"          Units as integer,",
+				"          Revenue as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> RowCsvFile",
+				"RowCsvFile select(mapColumn(",
+				"          ProductID,",
+				"          Units,",
+				"          Revenue",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectColumns",
+				"SelectColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> SinkDataSelectc"
+			]
+		}
+	}
+}

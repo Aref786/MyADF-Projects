@@ -80,6 +80,12 @@
 		"SqlServerLinkedServiceDEMO_password": {
 			"value": ""
 		},
+		"SqlServer1_connectionString": {
+			"value": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=DEMO"
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "aref-sql-server.database.windows.net"
 		},
@@ -177,6 +183,9 @@
 			"value": "Aref"
 		},
 		"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
+			"value": "Aref"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
 			"value": "Aref"
 		},
 		"containerUri": {

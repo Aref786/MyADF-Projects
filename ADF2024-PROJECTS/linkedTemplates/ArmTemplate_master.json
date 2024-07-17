@@ -111,6 +111,15 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServerLinkedServiceDEMO'"
 		},
+		"SqlServer1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1'",
+			"defaultValue": "Integrated Security=True;Data Source=AREF\\SQLEXPRESS;Initial Catalog=DEMO"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "aref-sql-server.database.windows.net"
@@ -240,6 +249,10 @@
 			"defaultValue": "Aref"
 		},
 		"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Aref"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Aref"
 		},
@@ -490,6 +503,12 @@
 					"SqlServerLinkedServiceDEMO_password": {
 						"value": "[parameters('SqlServerLinkedServiceDEMO_password')]"
 					},
+					"SqlServer1_connectionString": {
+						"value": "[parameters('SqlServer1_connectionString')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
 					"LinkedServSqlServerADV_properties_typeProperties_userName": {
 						"value": "[parameters('LinkedServSqlServerADV_properties_typeProperties_userName')]"
 					},
@@ -501,6 +520,9 @@
 					},
 					"SqlServerLinkedServiceDEMO_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServerLinkedServiceDEMO_properties_typeProperties_userName')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					}
 				}
 			},

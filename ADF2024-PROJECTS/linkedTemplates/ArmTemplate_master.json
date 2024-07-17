@@ -404,6 +404,9 @@
 					},
 					"RestService1_properties_typeProperties_url": {
 						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestServiceLinkedService_properties_typeProperties_url": {
+						"value": "[parameters('RestServiceLinkedService_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -422,9 +425,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"RestServiceLinkedService_properties_typeProperties_url": {
-						"value": "[parameters('RestServiceLinkedService_properties_typeProperties_url')]"
 					}
 				}
 			},

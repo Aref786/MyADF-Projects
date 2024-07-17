@@ -65,25 +65,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/LookupAzureSqlTableDEMO')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LinkedSerAzureSqlDatabaseDEMO",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "LookupStorage"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/RestGetDataSet')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -964,6 +945,9 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
+				"folder": {
+					"name": "OtherActivity"
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -1101,6 +1085,9 @@
 					"Revenue": {
 						"type": "Integer"
 					}
+				},
+				"folder": {
+					"name": "OtherActivity"
 				},
 				"annotations": []
 			},
@@ -1277,6 +1264,9 @@
 					"RawFilename": {
 						"type": "String"
 					}
+				},
+				"folder": {
+					"name": "OtherActivity"
 				},
 				"annotations": []
 			},
@@ -1553,6 +1543,9 @@
 						"type": "String"
 					}
 				},
+				"folder": {
+					"name": "OtherActivity"
+				},
 				"annotations": []
 			},
 			"dependsOn": []
@@ -1738,6 +1731,9 @@
 					"TableName": {
 						"type": "String"
 					}
+				},
+				"folder": {
+					"name": "OtherActivity"
 				},
 				"annotations": []
 			},
@@ -1974,6 +1970,9 @@
 						"type": "String"
 					}
 				},
+				"folder": {
+					"name": "OtherActivity"
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -2168,78 +2167,82 @@
 				"policy": {
 					"elapsedTimeMetric": {}
 				},
+				"folder": {
+					"name": "OtherActivity"
+				},
 				"annotations": []
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/setvariable')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/LooKupSqlServerTable2Advt')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
-					{
-						"name": "AzureSqlMetaDataTable",
-						"type": "Lookup",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"dataset": {
-								"referenceName": "AzureSqlMetaData",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						}
+				"linkedServiceName": {
+					"referenceName": "LookupSqlServer1LinkSer",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TableName": {
+						"type": "string"
 					},
-					{
-						"name": "Set variable1",
-						"type": "SetVariable",
-						"dependsOn": [
-							{
-								"activity": "AzureSqlMetaDataTable",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "CurrentData",
-							"value": {
-								"value": "@formatDateTime(utcnow(), 'yyyy-MM-dd')",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"variables": {
-					"CurrentData": {
-						"type": "String",
-						"defaultValue": "01-jan-2024"
+					"TableSchema": {
+						"type": "string"
 					}
 				},
-				"annotations": []
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "@dataset().TableSchema",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@dataset().TableName",
+						"type": "Expression"
+					}
+				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LookupSqlServer1LinkSer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServerAllDataCopyAdvtDataSet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SqlServerAllDataCopyAdvtLinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TableName": {
+						"type": "string"
+					},
+					"SCHEMA": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "@dataset().SCHEMA",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@dataset().TableName",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SqlServerAllDataCopyAdvtLinkedService')]"
+			]
 		}
 	]
 }

@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTable12",
+						"referenceName": "SqlServerTable3",
 						"type": "DatasetReference"
 					},
 					"name": "SinkDataSelectc"
@@ -52,8 +52,7 @@
 				"     upsertable:false,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> SinkDataSelectc"
+				"     skipDuplicateMapOutputs: true) ~> SinkDataSelectc"
 			]
 		}
 	}

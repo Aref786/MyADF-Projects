@@ -124,6 +124,9 @@
 				"type": "Integer"
 			}
 		},
+		"folder": {
+			"name": "OtherActivity"
+		},
 		"annotations": []
 	}
 }

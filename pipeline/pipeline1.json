@@ -179,6 +179,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "OtherActivity"
+		},
 		"annotations": []
 	}
 }

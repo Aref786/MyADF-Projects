@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -162,6 +163,9 @@
 			"RawFilename": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "OtherActivity"
 		},
 		"annotations": []
 	}

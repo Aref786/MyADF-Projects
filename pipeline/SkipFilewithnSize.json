@@ -223,6 +223,9 @@
 				"type": "String"
 			}
 		},
+		"folder": {
+			"name": "OtherActivity"
+		},
 		"annotations": []
 	}
 }

@@ -96,7 +96,7 @@
 								},
 								"sink": {
 									"name": "accountId",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{

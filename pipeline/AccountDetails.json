@@ -16,34 +16,114 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
+							"type": "JsonReadSettings"
 						}
 					},
 					"sink": {
 						"type": "SqlServerSink",
+						"preCopyScript": "TRUNCATE TABLE\n[stage].[Account]",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "id",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['fullName']"
+								},
+								"sink": {
+									"name": "fullName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['country']"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email']"
+								},
+								"sink": {
+									"name": "email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['phone']"
+								},
+								"sink": {
+									"name": "phone",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accountCreated']"
+								},
+								"sink": {
+									"name": "accountCreated",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accounts'][0]['accountId']"
+								},
+								"sink": {
+									"name": "accountId",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accounts'][0]['accountBalance']"
+								},
+								"sink": {
+									"name": "accountBalance",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accounts'][0]['created']"
+								},
+								"sink": {
+									"name": "Created",
+									"type": "DateTime"
+								}
+							}
+						],
+						"collectionReference": ""
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText14",
+						"referenceName": "Json1",
 						"type": "DatasetReference"
 					}
 				],

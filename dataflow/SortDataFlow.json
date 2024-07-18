@@ -1,0 +1,68 @@
+{
+	"name": "SortDataFlow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Excel1",
+						"type": "DatasetReference"
+					},
+					"name": "SourceData"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText13",
+						"type": "DatasetReference"
+					},
+					"name": "sinkSortDataFlow"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SelectColumns"
+				},
+				{
+					"name": "DerivedColumnToUpper"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          StudentId as string,",
+				"          {Student code} as string,",
+				"          {Student name} as string,",
+				"          date as date 'dd/MM/yyyy',",
+				"          Language as integer,",
+				"          Maths as integer,",
+				"          Phiysics as integer,",
+				"          Chemistry as integer,",
+				"          Computersicence as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SourceData",
+				"SourceData select(mapColumn(",
+				"          StudentId,",
+				"          {Student name},",
+				"          Language,",
+				"          Maths,",
+				"          Phiysics,",
+				"          Chemistry,",
+				"          Computersicence",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectColumns",
+				"SelectColumns derive({Student name} = upper({Student name}),",
+				"          {Total_Two_Sujct(Lan&Math)} = add(Language,Maths),",
+				"          {Total_Two_subj(Phy&&Chem)} = add(Phiysics,Chemistry)) ~> DerivedColumnToUpper",
+				"DerivedColumnToUpper sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkSortDataFlow"
+			]
+		}
+	}
+}

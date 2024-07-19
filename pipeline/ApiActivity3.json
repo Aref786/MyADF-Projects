@@ -1,0 +1,53 @@
+{
+	"name": "ApiActivity3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"headers": {
+						"x-rapidapi-host": "fresh-linkedin-profile-data.p.rapidapi.com",
+						"x-rapidapi-key": "c4718215damsh33fb4038080e59dp183226jsn0f75c535db34",
+						"Accept": "application/json",
+						"specificMethodHeaders": "[object Object]"
+					},
+					"url": "https://fresh-linkedin-profile-data.p.rapidapi.com/get-profile-posts?linkedin_url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fwilliamhgates%2F&type=posts"
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Web1').output",
+						"type": "Expression"
+					},
+					"isSequential": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}

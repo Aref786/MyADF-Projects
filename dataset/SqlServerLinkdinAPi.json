@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "stage",
-			"table": "LinkdinApi"
+			"table": "LinkedInPosts"
 		}
 	}
 }

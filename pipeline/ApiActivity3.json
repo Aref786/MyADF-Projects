@@ -84,7 +84,7 @@
 				]
 			},
 			{
-				"name": "Data flow1",
+				"name": "Data LinkdinApi",
 				"type": "ExecuteDataFlow",
 				"state": "Inactive",
 				"onInactiveMarkAs": "Succeeded",
@@ -105,6 +105,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "LinkdinApiDataFlow",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
@@ -115,9 +119,11 @@
 			{
 				"name": "Copy data2",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
-						"activity": "Data flow1",
+						"activity": "Data LinkdinApi",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -146,8 +152,7 @@
 					"sink": {
 						"type": "SqlServerSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate"
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -158,7 +163,8 @@
 									"path": "$['data'][0]['images'][0]['url']"
 								},
 								"sink": {
-									"name": "url"
+									"name": "Images",
+									"type": "String"
 								}
 							},
 							{
@@ -166,7 +172,8 @@
 									"path": "$['data'][0]['num_appreciations']"
 								},
 								"sink": {
-									"name": "num_appreciations"
+									"name": "NumAppreciations",
+									"type": "Int32"
 								}
 							},
 							{
@@ -174,7 +181,8 @@
 									"path": "$['data'][0]['num_comments']"
 								},
 								"sink": {
-									"name": "num_comments"
+									"name": "NumComments",
+									"type": "Int32"
 								}
 							},
 							{
@@ -182,7 +190,8 @@
 									"path": "$['data'][0]['num_empathy']"
 								},
 								"sink": {
-									"name": "num_empathy"
+									"name": "NumEmpathy",
+									"type": "Int32"
 								}
 							},
 							{
@@ -190,7 +199,8 @@
 									"path": "$['data'][0]['num_interests']"
 								},
 								"sink": {
-									"name": "num_interests"
+									"name": "NumInterests",
+									"type": "Int32"
 								}
 							},
 							{
@@ -198,15 +208,13 @@
 									"path": "$['data'][0]['num_likes']"
 								},
 								"sink": {
-									"name": "num_likes"
+									"name": "NumLikes",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"path": "$['data'][0]['num_praises']"
-								},
-								"sink": {
-									"name": "num_praises"
 								}
 							},
 							{
@@ -214,7 +222,8 @@
 									"path": "$['data'][0]['num_reposts']"
 								},
 								"sink": {
-									"name": "num_reposts"
+									"name": "NumReposts",
+									"type": "Int32"
 								}
 							},
 							{
@@ -222,7 +231,8 @@
 									"path": "$['data'][0]['post_url']"
 								},
 								"sink": {
-									"name": "post_url"
+									"name": "PostUrl",
+									"type": "String"
 								}
 							},
 							{
@@ -230,7 +240,8 @@
 									"path": "$['data'][0]['posted']"
 								},
 								"sink": {
-									"name": "posted"
+									"name": "Posted",
+									"type": "DateTime"
 								}
 							},
 							{
@@ -238,7 +249,8 @@
 									"path": "$['data'][0]['poster_linkedin_url']"
 								},
 								"sink": {
-									"name": "poster_linkedin_url"
+									"name": "PosterLinkedInUrl",
+									"type": "String"
 								}
 							},
 							{
@@ -246,7 +258,8 @@
 									"path": "$['data'][0]['reshared']"
 								},
 								"sink": {
-									"name": "reshared"
+									"name": "Reshared",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -254,7 +267,8 @@
 									"path": "$['data'][0]['text']"
 								},
 								"sink": {
-									"name": "text"
+									"name": "Text",
+									"type": "String"
 								}
 							},
 							{
@@ -262,47 +276,33 @@
 									"path": "$['data'][0]['time']"
 								},
 								"sink": {
-									"name": "time"
+									"name": "Time",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['data'][0]['urn']"
-								},
-								"sink": {
-									"name": "urn"
 								}
 							},
 							{
 								"source": {
 									"path": "$['message']"
-								},
-								"sink": {
-									"name": "message"
 								}
 							},
 							{
 								"source": {
 									"path": "$['paging']['count']"
-								},
-								"sink": {
-									"name": "count"
 								}
 							},
 							{
 								"source": {
 									"path": "$['paging']['pagination_token']"
-								},
-								"sink": {
-									"name": "pagination_token"
 								}
 							},
 							{
 								"source": {
 									"path": "$['paging']['start']"
-								},
-								"sink": {
-									"name": "start"
 								}
 							}
 						],

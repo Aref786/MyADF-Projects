@@ -1,0 +1,44 @@
+{
+	"name": "Json4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "part-00000-4f2f50cb-6d72-4607-be9a-ef88bca02cec-c000.json",
+				"container": "activitey1"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"genre": {
+					"type": "string"
+				},
+				"bigimage": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"image": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"imdbid": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

@@ -29,8 +29,10 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "json_to_db",
 				"type": "Copy",
+				"state": "Active",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Data flow1",
@@ -131,7 +133,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Json3",
+						"referenceName": "Json4",
 						"type": "DatasetReference"
 					}
 				],

@@ -283,11 +283,18 @@
 							{
 								"source": {
 									"path": "$['data'][0]['urn']"
+								},
+								"sink": {
+									"name": "Urn",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
 									"path": "$['message']"
+								},
+								"sink": {
+									"name": ""
 								}
 							},
 							{

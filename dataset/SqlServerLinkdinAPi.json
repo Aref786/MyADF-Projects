@@ -9,7 +9,7 @@
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "stage",
+			"schema": "Stage",
 			"table": "LinkedInPosts"
 		}
 	}

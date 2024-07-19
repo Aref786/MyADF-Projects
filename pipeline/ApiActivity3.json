@@ -132,8 +132,195 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['data'][0]['images'][0]['url']"
+								},
+								"sink": {
+									"name": "url"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_appreciations']"
+								},
+								"sink": {
+									"name": "num_appreciations"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_comments']"
+								},
+								"sink": {
+									"name": "num_comments"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_empathy']"
+								},
+								"sink": {
+									"name": "num_empathy"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_interests']"
+								},
+								"sink": {
+									"name": "num_interests"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_likes']"
+								},
+								"sink": {
+									"name": "num_likes"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_praises']"
+								},
+								"sink": {
+									"name": "num_praises"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['num_reposts']"
+								},
+								"sink": {
+									"name": "num_reposts"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['post_url']"
+								},
+								"sink": {
+									"name": "post_url"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['posted']"
+								},
+								"sink": {
+									"name": "posted"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['poster_linkedin_url']"
+								},
+								"sink": {
+									"name": "poster_linkedin_url"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['reshared']"
+								},
+								"sink": {
+									"name": "reshared"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['text']"
+								},
+								"sink": {
+									"name": "text"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['time']"
+								},
+								"sink": {
+									"name": "time"
+								}
+							},
+							{
+								"source": {
+									"path": "$['data'][0]['urn']"
+								},
+								"sink": {
+									"name": "urn"
+								}
+							},
+							{
+								"source": {
+									"path": "$['message']"
+								},
+								"sink": {
+									"name": "message"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paging']['count']"
+								},
+								"sink": {
+									"name": "count"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paging']['pagination_token']"
+								},
+								"sink": {
+									"name": "pagination_token"
+								}
+							},
+							{
+								"source": {
+									"path": "$['paging']['start']"
+								},
+								"sink": {
+									"name": "start"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json3Api_Linkden",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SqlServerLinkdinAPi",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []

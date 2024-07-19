@@ -1,0 +1,15 @@
+{
+	"name": "AipLinkdin",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Lk_ApiLinkdin",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "/get-profile-posts?linkedin_url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fwilliamhgates%2F&type=posts"
+		},
+		"schema": []
+	}
+}

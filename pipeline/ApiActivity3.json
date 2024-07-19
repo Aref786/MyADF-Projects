@@ -5,8 +5,6 @@
 			{
 				"name": "Web1",
 				"type": "WebActivity",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -31,9 +29,11 @@
 			{
 				"name": "Copy LinkDin_APi",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
-						"activity": "Web1",
+						"activity": "ForEach1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -212,231 +212,26 @@
 				]
 			},
 			{
-				"name": "Data LinkdinApi",
-				"type": "ExecuteDataFlow",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"state": "Inactive",
 				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
-						"activity": "Copy LinkDin_APi",
+						"activity": "Web1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					}
 				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "LinkdinApiDataFlow",
-						"type": "DataFlowReference"
+					"items": {
+						"value": "@activity('Web1').output.data",
+						"type": "Expression"
 					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
+					"isSequential": true
 				}
-			},
-			{
-				"name": "Copy data2",
-				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [
-					{
-						"activity": "Data LinkdinApi",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
-					},
-					"sink": {
-						"type": "SqlServerSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "$['data'][0]['images'][0]['url']"
-								},
-								"sink": {
-									"name": "Images",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_appreciations']"
-								},
-								"sink": {
-									"name": "NumAppreciations",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_comments']"
-								},
-								"sink": {
-									"name": "NumComments",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_empathy']"
-								},
-								"sink": {
-									"name": "NumEmpathy",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_interests']"
-								},
-								"sink": {
-									"name": "NumInterests",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_likes']"
-								},
-								"sink": {
-									"name": "NumLikes",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_praises']"
-								},
-								"sink": {
-									"name": "NumPraises",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['num_reposts']"
-								},
-								"sink": {
-									"name": "NumReposts",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['post_url']"
-								},
-								"sink": {
-									"name": "PostUrl",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['posted']"
-								},
-								"sink": {
-									"name": "Posted",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['poster_linkedin_url']"
-								},
-								"sink": {
-									"name": "PosterLinkedInUrl",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['reshared']"
-								},
-								"sink": {
-									"name": "Reshared",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['text']"
-								},
-								"sink": {
-									"name": "Text",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['time']"
-								},
-								"sink": {
-									"name": "Time",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['data'][0]['urn']"
-								},
-								"sink": {
-									"name": "Urn",
-									"type": "String"
-								}
-							}
-						],
-						"collectionReference": ""
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "Json3Api_Linkden",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "SqlServerLinkdinAPi",
-						"type": "DatasetReference"
-					}
-				]
 			}
 		],
 		"annotations": []

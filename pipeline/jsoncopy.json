@@ -29,9 +29,88 @@
 					"sink": {
 						"type": "SqlServerSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['fullName']"
+								},
+								"sink": {
+									"name": "fullName"
+								}
+							},
+							{
+								"source": {
+									"path": "$['country']"
+								},
+								"sink": {
+									"name": "country"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email']"
+								},
+								"sink": {
+									"name": "email"
+								}
+							},
+							{
+								"source": {
+									"path": "$['phone']"
+								},
+								"sink": {
+									"name": "phone"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accountCreated']"
+								},
+								"sink": {
+									"name": "accountCreated"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accounts'][0]['accountId']"
+								},
+								"sink": {
+									"name": "accountId"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accounts'][0]['accountBalance']"
+								},
+								"sink": {
+									"name": "accountBalance"
+								}
+							},
+							{
+								"source": {
+									"path": "$['accounts'][0]['created']"
+								},
+								"sink": {
+									"name": "created"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
 				},
 				"inputs": [
 					{

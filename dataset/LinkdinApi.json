@@ -1,0 +1,101 @@
+{
+	"name": "LinkdinApi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage7",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "LinkdinApiData",
+				"container": "account"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"images": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"url": {
+											"type": "string"
+										}
+									}
+								}
+							},
+							"num_appreciations": {
+								"type": "integer"
+							},
+							"num_comments": {
+								"type": "integer"
+							},
+							"num_empathy": {
+								"type": "integer"
+							},
+							"num_interests": {
+								"type": "integer"
+							},
+							"num_likes": {
+								"type": "integer"
+							},
+							"num_praises": {
+								"type": "integer"
+							},
+							"num_reposts": {
+								"type": "integer"
+							},
+							"post_url": {
+								"type": "string"
+							},
+							"posted": {
+								"type": "string"
+							},
+							"poster_linkedin_url": {
+								"type": "string"
+							},
+							"reshared": {
+								"type": "boolean"
+							},
+							"text": {
+								"type": "string"
+							},
+							"time": {
+								"type": "string"
+							},
+							"urn": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"message": {
+					"type": "string"
+				},
+				"paging": {
+					"type": "object",
+					"properties": {
+						"count": {
+							"type": "integer"
+						},
+						"pagination_token": {
+							"type": "string"
+						},
+						"start": {
+							"type": "integer"
+						}
+					}
+				}
+			}
+		}
+	}
+}

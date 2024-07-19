@@ -1,0 +1,109 @@
+{
+	"name": "DelimitedText16",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage7",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "part-00000-1eb75017-3bc9-44d6-aed3-f1d344cf1f19-c000.csv",
+				"folderPath": "output",
+				"container": "account"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "article_subtitle",
+				"type": "String"
+			},
+			{
+				"name": "article_title",
+				"type": "String"
+			},
+			{
+				"name": "url",
+				"type": "String"
+			},
+			{
+				"name": "num_appreciations",
+				"type": "String"
+			},
+			{
+				"name": "num_comments",
+				"type": "String"
+			},
+			{
+				"name": "num_empathy",
+				"type": "String"
+			},
+			{
+				"name": "num_interests",
+				"type": "String"
+			},
+			{
+				"name": "num_likes",
+				"type": "String"
+			},
+			{
+				"name": "num_praises",
+				"type": "String"
+			},
+			{
+				"name": "num_reposts",
+				"type": "String"
+			},
+			{
+				"name": "post_url",
+				"type": "String"
+			},
+			{
+				"name": "posted",
+				"type": "String"
+			},
+			{
+				"name": "poster_linkedin_url",
+				"type": "String"
+			},
+			{
+				"name": "reshared",
+				"type": "String"
+			},
+			{
+				"name": "resharer_comment",
+				"type": "String"
+			},
+			{
+				"name": "text",
+				"type": "String"
+			},
+			{
+				"name": "time",
+				"type": "String"
+			},
+			{
+				"name": "urn",
+				"type": "String"
+			},
+			{
+				"name": "video_duration",
+				"type": "String"
+			},
+			{
+				"name": "Video_stream_url",
+				"type": "String"
+			},
+			{
+				"name": "message",
+				"type": "String"
+			}
+		]
+	}
+}

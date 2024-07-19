@@ -12,24 +12,38 @@
 					"name": "JsonArray"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText15",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "flattenTransform1"
+				},
+				{
+					"name": "castDate"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
-				"          data as (images as (url as string)[], num_appreciations as integer, num_comments as integer, num_empathy as integer, num_interests as integer, num_likes as integer, num_praises as integer, num_reposts as integer, post_url as string, posted as string, poster_linkedin_url as string, reshared as boolean, text as string, time as string, urn as string)[],",
+				"          data as (article_subtitle as string, article_title as string, images as (url as string)[], num_appreciations as short, num_comments as short, num_empathy as short, num_interests as short, num_likes as short, num_praises as short, num_reposts as short, post_url as string, posted as timestamp, poster_linkedin_url as string, reshared as boolean, resharer_comment as string, text as string, time as string, urn as long, video as (duration as integer, stream_url as string))[],",
 				"          message as string,",
-				"          paging as (count as integer, pagination_token as string, start as integer)",
+				"          paging as (count as short, pagination_token as string, start as boolean)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'arrayOfDocuments') ~> JsonArray",
+				"     documentForm: 'documentPerLine',",
+				"     partitionBy('hash', 1)) ~> JsonArray",
 				"JsonArray foldDown(unroll(data.images, data),",
 				"     mapColumn(",
+				"          article_subtitle = data.article_subtitle,",
+				"          article_title = data.article_title,",
 				"          url = data.images.url,",
 				"          num_appreciations = data.num_appreciations,",
 				"          num_comments = data.num_comments,",
@@ -42,12 +56,24 @@
 				"          posted = data.posted,",
 				"          poster_linkedin_url = data.poster_linkedin_url,",
 				"          reshared = data.reshared,",
+				"          resharer_comment = data.resharer_comment,",
 				"          text = data.text,",
 				"          time = data.time,",
-				"          urn = data.urn",
+				"          urn = data.urn,",
+				"          video_duration = data.video.duration,",
+				"          Video_stream_url = data.video.stream_url,",
+				"          message",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flattenTransform1"
+				"     skipDuplicateMapOutputs: false) ~> flattenTransform1",
+				"flattenTransform1 cast(output(",
+				"          article_subtitle as string",
+				"     ),",
+				"     errors: true) ~> castDate",
+				"castDate sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}

@@ -215,6 +215,10 @@
 							{
 								"source": {
 									"path": "$['data'][0]['num_praises']"
+								},
+								"sink": {
+									"name": "NumPraises",
+									"type": "Int32"
 								}
 							},
 							{
@@ -294,22 +298,8 @@
 									"path": "$['message']"
 								},
 								"sink": {
-									"name": ""
-								}
-							},
-							{
-								"source": {
-									"path": "$['paging']['count']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['paging']['pagination_token']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['paging']['start']"
+									"name": "NumPraises",
+									"type": "Int32"
 								}
 							}
 						],

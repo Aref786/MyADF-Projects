@@ -1,0 +1,23 @@
+{
+	"name": "Lk_ApiLinkdin",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://fresh-linkedin-profile-data.p.rapidapi.com",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"X-Rapidapi-Key": {
+					"type": "SecureString",
+					"value": "**********"
+				},
+				"X-Rapidapi-Host": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
+		}
+	}
+}

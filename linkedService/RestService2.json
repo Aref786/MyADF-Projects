@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://imdb-top-100-movies.p.rapidapi.com/",
+			"url": "https://imdb-top-100-movies.p.rapidapi.com",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}

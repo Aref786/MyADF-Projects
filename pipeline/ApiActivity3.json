@@ -20,7 +20,8 @@
 						"x-rapidapi-host": "fresh-linkedin-profile-data.p.rapidapi.com",
 						"x-rapidapi-key": "c4718215damsh33fb4038080e59dp183226jsn0f75c535db34",
 						"Accept": "application/json",
-						"specificMethodHeaders": "[object Object]"
+						"specificMethodHeaders": "[object Object]",
+						"Content-Type": "null"
 					},
 					"url": "https://fresh-linkedin-profile-data.p.rapidapi.com/get-profile-posts?linkedin_url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fwilliamhgates%2F&type=posts"
 				}

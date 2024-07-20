@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "pokeAPI.csv",
+				"fileName": "pokeAPIQuery.csv",
 				"container": "employee"
 			},
 			"columnDelimiter": ",",

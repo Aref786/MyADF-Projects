@@ -41,24 +41,22 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['results'][0]['name']"
+									"path": "['name']"
 								},
 								"sink": {
-									"name": "name",
-									"type": "String"
+									"name": "name"
 								}
 							},
 							{
 								"source": {
-									"path": "$['results'][0]['url']"
+									"path": "['url']"
 								},
 								"sink": {
-									"name": "url",
-									"type": "String"
+									"name": "url"
 								}
 							}
 						],
-						"collectionReference": "",
+						"collectionReference": "$['results']",
 						"mapComplexValuesToString": true
 					}
 				},

@@ -76,7 +76,7 @@
 				]
 			},
 			{
-				"name": "Copy data1",
+				"name": "QueryParemater",
 				"type": "Copy",
 				"dependsOn": [
 					{

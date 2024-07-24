@@ -51,7 +51,7 @@
 						"type": "Expression"
 					},
 					"condition": {
-						"value": "@and(not(empty(item().Revenue)), equals(float(item().Revenue), 254.5725))\n",
+						"value": "@and(not(empty(item().Revenue)), equals(float(item().Revenue), 246.7))\n",
 						"type": "Expression"
 					}
 				}
@@ -74,7 +74,7 @@
 						"type": "Expression"
 					},
 					"condition": {
-						"value": "@greaterOrEquals(int(item().ProductID),1076)",
+						"value": "@greaterOrEquals(int(item().ProductID),1052)",
 						"type": "Expression"
 					}
 				}
@@ -82,6 +82,8 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Filter2",

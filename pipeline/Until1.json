@@ -94,7 +94,7 @@
 								],
 								"ifTrueActivities": [
 									{
-										"name": "Set variable_is_True",
+										"name": "Set variable_is_False",
 										"type": "SetVariable",
 										"dependsOn": [],
 										"policy": {

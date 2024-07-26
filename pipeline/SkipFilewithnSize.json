@@ -165,21 +165,15 @@
 												}
 											},
 											"sink": {
-												"type": "AzureSqlSink",
-												"writeBehavior": "insert",
-												"sqlWriterUseTableLock": false,
-												"tableOption": "autoCreate",
-												"disableMetricsCollection": false
-											},
-											"enableStaging": false,
-											"translator": {
-												"type": "TabularTranslator",
-												"typeConversion": true,
-												"typeConversionSettings": {
-													"allowDataTruncation": true,
-													"treatBooleanAsNumber": false
+												"type": "JsonSink",
+												"storeSettings": {
+													"type": "AzureBlobStorageWriteSettings"
+												},
+												"formatSettings": {
+													"type": "JsonWriteSettings"
 												}
-											}
+											},
+											"enableStaging": false
 										},
 										"inputs": [
 											{
@@ -195,14 +189,8 @@
 										],
 										"outputs": [
 											{
-												"referenceName": "AzureSqlTable7",
-												"type": "DatasetReference",
-												"parameters": {
-													"FileName": {
-														"value": "@variables('FileName')",
-														"type": "Expression"
-													}
-												}
+												"referenceName": "Json5",
+												"type": "DatasetReference"
 											}
 										]
 									}

@@ -47,7 +47,7 @@
 									"type": "DatasetReference"
 								},
 								"fieldList": [
-									"childItems"
+									"exists"
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
@@ -61,8 +61,6 @@
 						{
 							"name": "If Condition_for_checking_fils_Names",
 							"type": "IfCondition",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "Get Metadata_FilesNames",
@@ -74,7 +72,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@activity('Get Metadata_FilesNames').output.childItems",
+									"value": "@activity('Get Metadata_FilesNames').output.exists",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [

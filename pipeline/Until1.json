@@ -47,7 +47,7 @@
 									"type": "DatasetReference"
 								},
 								"fieldList": [
-									"exists"
+									"childItems"
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
@@ -72,7 +72,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@activity('Get Metadata_FilesNames').output.exists",
+									"value": "@activity('Get Metadata_FilesNames').output.childItems",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [

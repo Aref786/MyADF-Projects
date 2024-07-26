@@ -51,6 +51,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -72,9 +73,25 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@activity('Get Metadata_FilesNames').output.childItems",
+									"value": "@empty(activity('Get Metadata_FilesNames').output.childItems)",
 									"type": "Expression"
 								},
+								"ifFalseActivities": [
+									{
+										"name": "Set variable-True",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "FileName",
+											"value": "True"
+										}
+									}
+								],
 								"ifTrueActivities": [
 									{
 										"name": "Set variable_is_True",
@@ -87,7 +104,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "FileName",
-											"value": "True"
+											"value": "false"
 										}
 									}
 								]

@@ -5,11 +5,18 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@createArray('Sales','Type')",
+						"value": "@variables('FileName')",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -47,7 +54,8 @@
 								"sink": {
 									"type": "SqlServerSink",
 									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate"
 								},
 								"enableStaging": false,
 								"translator": {
@@ -86,8 +94,29 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "FileName",
+					"value": [
+						"['Sales', 'Type']"
+					]
+				}
 			}
 		],
+		"variables": {
+			"FileName": {
+				"type": "Array"
+			}
+		},
 		"folder": {
 			"name": "AdF_Final_Activitey"
 		},

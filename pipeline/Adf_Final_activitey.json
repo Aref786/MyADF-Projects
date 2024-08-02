@@ -36,15 +36,6 @@
 							"typeProperties": {
 								"source": {
 									"type": "ExcelSource",
-									"additionalColumns": [
-										{
-											"name": "CreateDate",
-											"value": {
-												"value": "@formatDateTime(utcnow(),'dd-mm-yy')",
-												"type": "Expression"
-											}
-										}
-									],
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
@@ -69,7 +60,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Excel4",
+									"referenceName": "Excel5",
 									"type": "DatasetReference",
 									"parameters": {
 										"WorkSheet": {

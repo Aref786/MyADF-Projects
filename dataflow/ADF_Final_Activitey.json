@@ -85,8 +85,7 @@
 				"          AmountPaidReceived = add(NetAmount,VatAmount)*grossValue,",
 				"          AsOfDate = currentDate('dd-mm-yyyy'),",
 				"          Filename = endsWith(concat('Sales', toString(currentTimestamp(), 'ddmmyyy')), '.csv')\r",
-				",",
-				"          CreatedBy = 'Admin') ~> derivedColumn1"
+				") ~> derivedColumn1"
 			]
 		}
 	}

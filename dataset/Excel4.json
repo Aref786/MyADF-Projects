@@ -1,10 +1,6 @@
 {
 	"name": "Excel4",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage7",
-			"type": "LinkedServiceReference"
-		},
 		"parameters": {
 			"WorkSheet": {
 				"type": "string"
@@ -16,11 +12,6 @@
 			"sheetName": {
 				"value": "@dataset().WorkSheet",
 				"type": "Expression"
-			},
-			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "DataSample.xlsx",
-				"container": "dataset"
 			},
 			"firstRowAsHeader": true
 		},

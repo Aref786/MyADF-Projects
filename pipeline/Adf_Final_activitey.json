@@ -119,7 +119,7 @@
 									"formatSettings": {
 										"type": "DelimitedTextWriteSettings",
 										"quoteAllText": true,
-										"fileExtension": ".txt"
+										"fileExtension": ".csv"
 									}
 								},
 								"enableStaging": false,
@@ -146,8 +146,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DelimitedText19",
-									"type": "DatasetReference"
+									"referenceName": "DelimitedText20",
+									"type": "DatasetReference",
+									"parameters": {
+										"WorkSheet": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

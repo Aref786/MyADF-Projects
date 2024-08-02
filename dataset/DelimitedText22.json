@@ -1,0 +1,37 @@
+{
+	"name": "DelimitedText22",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage7",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Type",
+				"folderPath": "RawFolder",
+				"container": "dataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SKTransType",
+				"type": "String"
+			},
+			{
+				"name": "BKTransType",
+				"type": "String"
+			},
+			{
+				"name": "TransDesc",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -1,0 +1,82 @@
+{
+	"name": "ADF_Final_Activitey",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText21",
+						"type": "DatasetReference"
+					},
+					"name": "Salesdata"
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedText22",
+						"type": "DatasetReference"
+					},
+					"name": "Type"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "join1",
+					"description": "Inner join on 'Sales data' and 'Type'"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          InvoiceNumber as string,",
+				"          Date as string,",
+				"          Type as string,",
+				"          Period as string,",
+				"          DueDate as string,",
+				"          InvoiceDate as string,",
+				"          FromDate as string,",
+				"          ToDate as string,",
+				"          NetAmount as string,",
+				"          VatAmount as string,",
+				"          grossValue as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Salesdata",
+				"source(output(",
+				"          SKTransType as string,",
+				"          BKTransType as string,",
+				"          TransDesc as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Type",
+				"Salesdata, Type join(Type == BKTransType,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
+				"join1 select(mapColumn(",
+				"          InvoiceNumber,",
+				"          Date,",
+				"          Type,",
+				"          Period,",
+				"          DueDate,",
+				"          InvoiceDate,",
+				"          FromDate,",
+				"          ToDate,",
+				"          NetAmount,",
+				"          VatAmount,",
+				"          grossValue,",
+				"          SKTransType,",
+				"          TransDesc",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
+			]
+		}
+	}
+}

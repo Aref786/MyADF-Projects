@@ -1,0 +1,69 @@
+{
+	"name": "DelimitedText21",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage7",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Sales",
+				"folderPath": "RawFolder",
+				"container": "dataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "InvoiceNumber",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Type",
+				"type": "String"
+			},
+			{
+				"name": "Period",
+				"type": "String"
+			},
+			{
+				"name": "DueDate",
+				"type": "String"
+			},
+			{
+				"name": "InvoiceDate",
+				"type": "String"
+			},
+			{
+				"name": "FromDate",
+				"type": "String"
+			},
+			{
+				"name": "ToDate",
+				"type": "String"
+			},
+			{
+				"name": "NetAmount",
+				"type": "String"
+			},
+			{
+				"name": "VatAmount",
+				"type": "String"
+			},
+			{
+				"name": "grossValue",
+				"type": "String"
+			}
+		]
+	}
+}

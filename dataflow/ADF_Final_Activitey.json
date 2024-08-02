@@ -50,7 +50,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> Salesdata",
 				"source(output(",
-				"          SKTransType as string,",
+				"          SKTransType as integer,",
 				"          BKTransType as string,",
 				"          TransDesc as string",
 				"     ),",

@@ -98,7 +98,8 @@
 				"typeProperties": {
 					"variableName": "FileName",
 					"value": [
-						"['Sales', 'Type']"
+						"Sales",
+						"Type"
 					]
 				}
 			}

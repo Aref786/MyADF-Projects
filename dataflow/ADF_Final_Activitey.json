@@ -79,15 +79,14 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 derive(CharecontrolNumber = concat(Type, '-', InvoiceNumber)\r",
+				"select1 derive(SKdate = toString(Date, 'ddMMyyyy'),",
+				"          CharecontrolNumber = concat(Type, '-', InvoiceNumber)\r",
 				",",
 				"          AmountPaidReceived = add(NetAmount,VatAmount)*grossValue,",
 				"          AsOfDate = currentDate('dd-mm-yyyy'),",
 				"          Filename = endsWith(concat('Sales', toString(currentTimestamp(), 'ddmmyyy')), '.csv')\r",
 				",",
-				"          CreatedBy = 'Admin',",
-				"          UpdatedDateTime = '0',",
-				"          SKdate = toString(Date, 'ddMMyyyy')) ~> derivedColumn1"
+				"          CreatedBy = 'Admin') ~> derivedColumn1"
 			]
 		}
 	}

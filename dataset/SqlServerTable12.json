@@ -1,0 +1,24 @@
+{
+	"name": "SqlServerTable12",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Dim",
+			"table": {
+				"value": "@dataset().FileName",
+				"type": "Expression"
+			}
+		}
+	}
+}

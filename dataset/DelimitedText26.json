@@ -1,0 +1,101 @@
+{
+	"name": "DelimitedText26",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage7",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": "DataFlow",
+				"container": "dataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "InvoiceNumber",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Type",
+				"type": "String"
+			},
+			{
+				"name": "Period",
+				"type": "String"
+			},
+			{
+				"name": "DueDate",
+				"type": "String"
+			},
+			{
+				"name": "InvoiceDate",
+				"type": "String"
+			},
+			{
+				"name": "FromDate",
+				"type": "String"
+			},
+			{
+				"name": "ToDate",
+				"type": "String"
+			},
+			{
+				"name": "NetAmount",
+				"type": "String"
+			},
+			{
+				"name": "VatAmount",
+				"type": "String"
+			},
+			{
+				"name": "grossValue",
+				"type": "String"
+			},
+			{
+				"name": "SKTransType",
+				"type": "String"
+			},
+			{
+				"name": "TransDesc",
+				"type": "String"
+			},
+			{
+				"name": "SKdate",
+				"type": "String"
+			},
+			{
+				"name": "CharecontrolNumber",
+				"type": "String"
+			},
+			{
+				"name": "AmountPaidReceived",
+				"type": "String"
+			},
+			{
+				"name": "AsOfDate",
+				"type": "String"
+			}
+		]
+	}
+}

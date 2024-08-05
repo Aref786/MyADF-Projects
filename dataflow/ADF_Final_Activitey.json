@@ -22,10 +22,17 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "SqlServerTable10",
+						"referenceName": "DelimitedText24",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedText23",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -38,9 +45,6 @@
 				},
 				{
 					"name": "AddingColumn"
-				},
-				{
-					"name": "split1"
 				},
 				{
 					"name": "split2"
@@ -95,21 +99,18 @@
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 derive(SKdate = toString(Date, 'ddMMyyyy'),",
 				"          CharecontrolNumber = concat(Type, '-', InvoiceNumber),",
-				"          AmountPaidReceived = add(NetAmount,VatAmount)*grossValue,",
+				"          AmountPaidReceived = round(add(NetAmount,VatAmount)*grossValue,3),",
 				"          AsOfDate = currentDate('dd-mm-yyyy')) ~> AddingColumn",
-				"split2@AmountPaidReceived split(AmountPaidReceived>800000,",
-				"     disjoint: false) ~> split1@(AmountPaidReceived)",
-				"AddingColumn split(AmountPaidReceived<=800000,",
+				"AddingColumn split(AmountPaidReceived>800000,",
 				"     disjoint: false) ~> split2@(AmountPaidReceived, Lt800000)",
-				"split1@AmountPaidReceived sink(allowSchemaDrift: true,",
+				"split2@AmountPaidReceived sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"split2@Lt800000 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
 			]
 		}
 	}

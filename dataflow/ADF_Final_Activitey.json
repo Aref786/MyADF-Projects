@@ -41,6 +41,9 @@
 				},
 				{
 					"name": "split1"
+				},
+				{
+					"name": "split2"
 				}
 			],
 			"scriptLines": [
@@ -94,8 +97,10 @@
 				"          CharecontrolNumber = concat(Type, '-', InvoiceNumber),",
 				"          AmountPaidReceived = add(NetAmount,VatAmount)*grossValue,",
 				"          AsOfDate = currentDate('dd-mm-yyyy')) ~> AddingColumn",
-				"AddingColumn split(AmountPaidReceived>800000,",
+				"split2@AmountPaidReceived split(AmountPaidReceived>800000,",
 				"     disjoint: false) ~> split1@(AmountPaidReceived)",
+				"AddingColumn split(AmountPaidReceived<=800000,",
+				"     disjoint: false) ~> split2@(AmountPaidReceived, Lt800000)",
 				"split1@AmountPaidReceived sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",

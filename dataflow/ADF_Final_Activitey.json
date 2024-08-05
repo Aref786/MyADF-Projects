@@ -19,7 +19,15 @@
 					"name": "Type"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SqlServerTable10",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "join1",
@@ -29,22 +37,25 @@
 					"name": "select1"
 				},
 				{
-					"name": "derivedColumn1"
+					"name": "AddingColumn"
+				},
+				{
+					"name": "split1"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
 				"          InvoiceNumber as string,",
-				"          Date as date 'dd/MM/yyyy',",
+				"          Date as date,",
 				"          Type as string,",
-				"          Period as date 'dd/MM/yyyy',",
-				"          DueDate as string,",
-				"          InvoiceDate as date 'dd/MM/yyyy',",
-				"          FromDate as string,",
-				"          ToDate as string,",
-				"          NetAmount as double '000,000,000.000',",
-				"          VatAmount as double '000,000,000.000',",
-				"          grossValue as double '000,000,000.000'",
+				"          Period as date,",
+				"          DueDate as date,",
+				"          InvoiceDate as date,",
+				"          FromDate as date,",
+				"          ToDate as date,",
+				"          NetAmount as double,",
+				"          VatAmount as double,",
+				"          grossValue as short",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -80,12 +91,20 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 derive(SKdate = toString(Date, 'ddMMyyyy'),",
-				"          CharecontrolNumber = concat(Type, '-', InvoiceNumber)\r",
-				",",
+				"          CharecontrolNumber = concat(Type, '-', InvoiceNumber),",
 				"          AmountPaidReceived = add(NetAmount,VatAmount)*grossValue,",
-				"          AsOfDate = currentDate('dd-mm-yyyy'),",
-				"          Filename = endsWith(concat('Sales', toString(currentTimestamp(), 'ddmmyyy')), '.csv')\r",
-				") ~> derivedColumn1"
+				"          AsOfDate = currentDate('dd-mm-yyyy')) ~> AddingColumn",
+				"AddingColumn split(AmountPaidReceived>800000,",
+				"     disjoint: false) ~> split1@(AmountPaidReceived)",
+				"split1@AmountPaidReceived sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}

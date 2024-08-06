@@ -22,17 +22,10 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText24",
+						"referenceName": "DelimitedText27",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
-				},
-				{
-					"dataset": {
-						"referenceName": "DelimitedText23",
-						"type": "DatasetReference"
-					},
-					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -47,13 +40,16 @@
 					"name": "AddingColumn"
 				},
 				{
-					"name": "split2"
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "cast1"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
 				"          InvoiceNumber as string,",
-				"          Date as date,",
+				"          Date as string,",
 				"          Type as string,",
 				"          Period as date,",
 				"          DueDate as date,",
@@ -75,12 +71,12 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> Type",
-				"Salesdata, Type join(Type == BKTransType,",
+				"derivedColumn1, Type join(Type == BKTransType,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join1",
-				"join1 select(mapColumn(",
+				"cast1 select(mapColumn(",
 				"          InvoiceNumber,",
 				"          Date,",
 				"          Type,",
@@ -101,16 +97,20 @@
 				"          CharecontrolNumber = concat(Type, '-', InvoiceNumber),",
 				"          AmountPaidReceived = round(add(NetAmount,VatAmount)*grossValue,3),",
 				"          AsOfDate = currentDate('dd-mm-yyyy')) ~> AddingColumn",
-				"AddingColumn split(AmountPaidReceived>800000,",
-				"     disjoint: false) ~> split2@(AmountPaidReceived, Lt800000)",
-				"split2@AmountPaidReceived sink(allowSchemaDrift: true,",
+				"Salesdata derive(Date = concat(\r",
+				"    substring(Date, 9, 2), '-',  \r",
+				"    substring(Date, 6, 2), '-', \r",
+				"    substring(Date, 1, 4)        \r",
+				")\r",
+				") ~> derivedColumn1",
+				"join1 cast(output(",
+				"          Date as date 'dd-MM-yyyy'",
+				"     ),",
+				"     errors: true) ~> cast1",
+				"AddingColumn sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1",
-				"split2@Lt800000 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink2"
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}

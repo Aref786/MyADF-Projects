@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Sales.csv",
-				"folderPath": "DataFlow",
+				"folderPath": "DataFlow1",
 				"container": "dataset"
 			},
 			"columnDelimiter": ",",

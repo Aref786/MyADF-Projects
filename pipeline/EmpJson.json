@@ -22,19 +22,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[ExtractDataFromComplexJson]",
-					"storedProcedureParameters": {
-						"JsonData": {
-							"value": {
-								"value": "@string(activity('Lookup1').output.value)\n",
-								"type": "Expression"
-							},
-							"type": "String"
-						}
-					}
+					"storedProcedureName": "[dbo].[ExtractDataFromComplexJson]"
 				},
 				"linkedServiceName": {
-					"referenceName": "linkedService1",
+					"referenceName": "linkedService2",
 					"type": "LinkedServiceReference"
 				}
 			},

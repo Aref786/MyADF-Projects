@@ -26,7 +26,7 @@
 					"storedProcedureParameters": {
 						"JsonData": {
 							"value": {
-								"value": "@activity('Lookup1').output.value",
+								"value": "@string(activity('Lookup1').output.value)\n",
 								"type": "Expression"
 							},
 							"type": "String"
@@ -55,7 +55,7 @@
 						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
+							"recursive": false,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {

@@ -1,0 +1,82 @@
+{
+	"name": "Json6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "JsonEmp.json",
+				"container": "employeedata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"company": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"employees": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"employeeId": {
+										"type": "integer"
+									},
+									"firstName": {
+										"type": "string"
+									},
+									"lastName": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"department": {
+										"type": "string"
+									},
+									"address": {
+										"type": "object",
+										"properties": {
+											"street": {
+												"type": "string"
+											},
+											"city": {
+												"type": "string"
+											},
+											"zipCode": {
+												"type": "string"
+											}
+										}
+									},
+									"projects": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"projectId": {
+													"type": "integer"
+												},
+												"projectName": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

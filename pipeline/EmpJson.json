@@ -26,7 +26,7 @@
 					"storedProcedureParameters": {
 						"JsonData": {
 							"value": {
-								"value": "@string(activity('Lookup1').output.value)",
+								"value": "@activity('Lookup1').output.value",
 								"type": "Expression"
 							},
 							"type": "String"

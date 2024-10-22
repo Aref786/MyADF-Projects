@@ -22,11 +22,11 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[ExtractDataFromComplexJson]",
+					"storedProcedureName": "[dbo].[proc_Demo]",
 					"storedProcedureParameters": {
-						"JsonData": {
+						"jsonData": {
 							"value": {
-								"value": "@activity('Lookup1').output.value",
+								"value": "@string(activity('Lookup1').output.value)",
 								"type": "Expression"
 							},
 							"type": "String"
@@ -63,7 +63,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "Json6",
+						"referenceName": "Json7",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false

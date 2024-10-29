@@ -92,11 +92,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"SchemaName": {
-											"value": "@item().Schema_Name[0]",
+											"value": "@item().Schema_Name",
 											"type": "Expression"
 										},
 										"TableName": {
-											"value": "@item().Table_Name[1]",
+											"value": "@item().Table_Name",
 											"type": "Expression"
 										}
 									}

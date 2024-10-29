@@ -108,7 +108,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FileName": {
-											"value": "@item().Schema_Name[0].Table_Name[1]",
+											"value": "@concat(item().Schema_Name, '.', item().Table_Name)\n",
 											"type": "Expression"
 										}
 									}

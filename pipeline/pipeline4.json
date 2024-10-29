@@ -105,7 +105,13 @@
 							"outputs": [
 								{
 									"referenceName": "DelimitedText28",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": {
+											"value": "@item().Schema_Name[0].Table_Name[1]",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

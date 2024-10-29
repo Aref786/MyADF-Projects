@@ -89,7 +89,17 @@
 							"inputs": [
 								{
 									"referenceName": "AzureSqlTable14",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"SchemaName": {
+											"value": "@item()[0]",
+											"type": "Expression"
+										},
+										"TableName": {
+											"value": "@item().[1]",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [

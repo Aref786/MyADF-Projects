@@ -19,7 +19,7 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"container": "Query"
+				"container": "query"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

@@ -1,0 +1,141 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable16",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable17",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {d_results'][0]['__metadata_uri} as string,",
+				"          type as string,",
+				"          personIdExternal as string,",
+				"          userId as string,",
+				"          lastModifiedDateTime as string,",
+				"          notes as string,",
+				"          endDate as string,",
+				"          bonusPayExpirationDate as string,",
+				"          createdDateTime as string,",
+				"          employmentId as string,",
+				"          isContingentWorker as string,",
+				"          customLong11 as string,",
+				"          customLong14 as string,",
+				"          okToRehire as string,",
+				"          assignmentIdExternal as string,",
+				"          customDouble11 as string,",
+				"          customString81 as string,",
+				"          customString82 as string,",
+				"          customString83 as string,",
+				"          customString84 as string,",
+				"          customString85 as string,",
+				"          seniorityDate as string,",
+				"          startDate as string,",
+				"          hiringNotCompleted as string,",
+				"          isECRecord as string,",
+				"          customString20 as string,",
+				"          prevEmployeeId as string,",
+				"          regretTermination as string,",
+				"          createdOn as string,",
+				"          originalStartDate as string,",
+				"          customDate6 as string,",
+				"          customString19 as string,",
+				"          assignmentClass as string,",
+				"          lastModifiedBy as string,",
+				"          lastModifiedOn as string,",
+				"          createdBy as string,",
+				"          {d_results'][0]['paymentInformationNav___deferred_uri} as string,",
+				"          {d_results'][0]['customString84Nav___deferred_uri} as string,",
+				"          {d_results'][0]['photoNav___deferred_uri} as string,",
+				"          {d_results'][0]['compInfoNav___deferred_uri} as string,",
+				"          {d_results'][0]['onboardingInfoNav___deferred_uri} as string,",
+				"          {d_results'][0]['customString19Nav___deferred_uri} as string,",
+				"          {d_results'][0]['customString81Nav___deferred_uri} as string,",
+				"          {d_results'][0]['customString85Nav___deferred_uri} as string,",
+				"          {d_results'][0]['customString20Nav___deferred_uri} as string,",
+				"          {d_results'][0]['empJobRelationshipNav___deferred_uri} as string,",
+				"          {d_results'][0]['personNav___deferred_uri} as string,",
+				"          {d_results'][0]['customString82Nav___deferred_uri} as string,",
+				"          {d_results'][0]['empWorkPermitNav___deferred_uri} as string,",
+				"          {d_results'][0]['userNav___deferred_uri} as string,",
+				"          {d_results'][0]['jobInfoNav___deferred_uri} as string,",
+				"          {d_results'][0]['customString83Nav___deferred_uri} as string,",
+				"          {d_results'][0]['wfRequestNav___deferred_uri} as string,",
+				"          {d_results'][0]['costDistributionNav___deferred_uri} as string,",
+				"          {d_results'][0]['empPayCompNonRecurringNav___deferred_uri} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source1 select(mapColumn(",
+				"          type,",
+				"          personIdExternal,",
+				"          userId,",
+				"          lastModifiedDateTime,",
+				"          notes,",
+				"          endDate,",
+				"          bonusPayExpirationDate,",
+				"          createdDateTime,",
+				"          employmentId,",
+				"          isContingentWorker,",
+				"          customLong11,",
+				"          customString19",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 derive(lastModifiedDateTime = toTimestamp(\r",
+				"    toInteger(\r",
+				"        replace(\r",
+				"            replace(toString(lastModifiedDateTime), '/Date(', ''),\r",
+				"            ')/', ''\r",
+				"        )\r",
+				"    ) / 1000\r",
+				")\r",
+				",",
+				"          createdDateTime = toTimestamp(\r",
+				"    toInteger(\r",
+				"        replace(\r",
+				"            replace(toString(createdDateTime), '/Date(', ''),\r",
+				"            ')/', ''\r",
+				"        )\r",
+				"    ) / 1000\r",
+				")\r",
+				") ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

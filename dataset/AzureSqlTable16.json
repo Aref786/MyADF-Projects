@@ -1,0 +1,237 @@
+{
+	"name": "AzureSqlTable16",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "d_results'][0]['__metadata_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "personIdExternal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "userId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "lastModifiedDateTime",
+				"type": "nvarchar"
+			},
+			{
+				"name": "notes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "endDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bonusPayExpirationDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "createdDateTime",
+				"type": "nvarchar"
+			},
+			{
+				"name": "employmentId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "isContingentWorker",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customLong11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customLong14",
+				"type": "nvarchar"
+			},
+			{
+				"name": "okToRehire",
+				"type": "nvarchar"
+			},
+			{
+				"name": "assignmentIdExternal",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customDouble11",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString81",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString82",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString83",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString84",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString85",
+				"type": "nvarchar"
+			},
+			{
+				"name": "seniorityDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "startDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hiringNotCompleted",
+				"type": "nvarchar"
+			},
+			{
+				"name": "isECRecord",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString20",
+				"type": "nvarchar"
+			},
+			{
+				"name": "prevEmployeeId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "regretTermination",
+				"type": "nvarchar"
+			},
+			{
+				"name": "createdOn",
+				"type": "nvarchar"
+			},
+			{
+				"name": "originalStartDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customDate6",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customString19",
+				"type": "nvarchar"
+			},
+			{
+				"name": "assignmentClass",
+				"type": "nvarchar"
+			},
+			{
+				"name": "lastModifiedBy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "lastModifiedOn",
+				"type": "nvarchar"
+			},
+			{
+				"name": "createdBy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['paymentInformationNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString84Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['photoNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['compInfoNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['onboardingInfoNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString19Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString81Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString85Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString20Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['empJobRelationshipNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['personNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString82Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['empWorkPermitNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['userNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['jobInfoNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['customString83Nav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['wfRequestNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['costDistributionNav___deferred_uri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "d_results'][0]['empPayCompNonRecurringNav___deferred_uri",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Date"
+		}
+	}
+}

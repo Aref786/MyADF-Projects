@@ -1,0 +1,396 @@
+{
+	"name": "Json9",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SAPEMP_2.json",
+				"container": "dateformate"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"d": {
+					"type": "object",
+					"properties": {
+						"results": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"__metadata": {
+										"type": "object",
+										"properties": {
+											"uri": {
+												"type": "string"
+											},
+											"type": {
+												"type": "string"
+											}
+										}
+									},
+									"personIdExternal": {
+										"type": "string"
+									},
+									"userId": {
+										"type": "string"
+									},
+									"lastModifiedDateTime": {
+										"type": "string"
+									},
+									"notes": {
+										"type": "null"
+									},
+									"endDate": {
+										"type": "string"
+									},
+									"bonusPayExpirationDate": {
+										"type": "null"
+									},
+									"createdDateTime": {
+										"type": "string"
+									},
+									"employmentId": {
+										"type": "string"
+									},
+									"isContingentWorker": {
+										"type": "boolean"
+									},
+									"customLong11": {
+										"type": "null"
+									},
+									"customLong14": {
+										"type": "null"
+									},
+									"okToRehire": {
+										"type": "boolean"
+									},
+									"assignmentIdExternal": {
+										"type": "string"
+									},
+									"customDouble11": {
+										"type": "null"
+									},
+									"customString81": {
+										"type": "null"
+									},
+									"customString82": {
+										"type": "null"
+									},
+									"customString83": {
+										"type": "null"
+									},
+									"customString84": {
+										"type": "null"
+									},
+									"customString85": {
+										"type": "null"
+									},
+									"seniorityDate": {
+										"type": "null"
+									},
+									"startDate": {
+										"type": "string"
+									},
+									"hiringNotCompleted": {
+										"type": "boolean"
+									},
+									"isECRecord": {
+										"type": "boolean"
+									},
+									"customString20": {
+										"type": "null"
+									},
+									"prevEmployeeId": {
+										"type": "null"
+									},
+									"regretTermination": {
+										"type": "boolean"
+									},
+									"createdOn": {
+										"type": "string"
+									},
+									"originalStartDate": {
+										"type": "string"
+									},
+									"customDate6": {
+										"type": "string"
+									},
+									"customString19": {
+										"type": "null"
+									},
+									"assignmentClass": {
+										"type": "string"
+									},
+									"lastModifiedBy": {
+										"type": "string"
+									},
+									"lastModifiedOn": {
+										"type": "string"
+									},
+									"createdBy": {
+										"type": "string"
+									},
+									"paymentInformationNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString84Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"photoNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"compInfoNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"onboardingInfoNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString19Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString81Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString85Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString20Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"empJobRelationshipNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"personNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString82Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"empWorkPermitNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"userNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"jobInfoNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"customString83Nav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"wfRequestNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"costDistributionNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									},
+									"empPayCompNonRecurringNav": {
+										"type": "object",
+										"properties": {
+											"__deferred": {
+												"type": "object",
+												"properties": {
+													"uri": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

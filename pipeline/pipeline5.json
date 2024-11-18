@@ -42,7 +42,7 @@
 									"path": "['__metadata']['uri']"
 								},
 								"sink": {
-									"name": "uri",
+									"name": "d_results'][0]['__metadata_uri",
 									"type": "String"
 								}
 							},
@@ -79,7 +79,7 @@
 								},
 								"sink": {
 									"name": "lastModifiedDateTime",
-									"type": "DateTime"
+									"type": "String"
 								}
 							},
 							{
@@ -97,7 +97,7 @@
 								},
 								"sink": {
 									"name": "endDate",
-									"type": "DateTime"
+									"type": "String"
 								}
 							},
 							{
@@ -106,7 +106,7 @@
 								},
 								"sink": {
 									"name": "bonusPayExpirationDate",
-									"type": "DateTime"
+									"type": "String"
 								}
 							},
 							{
@@ -115,7 +115,7 @@
 								},
 								"sink": {
 									"name": "createdDateTime",
-									"type": "DateTime"
+									"type": "String"
 								}
 							},
 							{
@@ -133,7 +133,7 @@
 								},
 								"sink": {
 									"name": "isContingentWorker",
-									"type": "Boolean"
+									"type": "String"
 								}
 							},
 							{
@@ -177,7 +177,8 @@
 									"path": "['customDouble11']"
 								},
 								"sink": {
-									"name": "customDouble11"
+									"name": "customDouble11",
+									"type": "String"
 								}
 							},
 							{
@@ -185,7 +186,8 @@
 									"path": "['customString81']"
 								},
 								"sink": {
-									"name": "customString81"
+									"name": "customString81",
+									"type": "String"
 								}
 							},
 							{
@@ -193,7 +195,8 @@
 									"path": "['customString82']"
 								},
 								"sink": {
-									"name": "customString82"
+									"name": "customString82",
+									"type": "String"
 								}
 							},
 							{
@@ -201,7 +204,8 @@
 									"path": "['customString83']"
 								},
 								"sink": {
-									"name": "customString83"
+									"name": "customString83",
+									"type": "String"
 								}
 							},
 							{
@@ -209,7 +213,8 @@
 									"path": "['customString84']"
 								},
 								"sink": {
-									"name": "customString84"
+									"name": "customString84",
+									"type": "String"
 								}
 							},
 							{
@@ -217,7 +222,8 @@
 									"path": "['customString85']"
 								},
 								"sink": {
-									"name": "customString85"
+									"name": "customString85",
+									"type": "String"
 								}
 							},
 							{
@@ -225,7 +231,8 @@
 									"path": "['seniorityDate']"
 								},
 								"sink": {
-									"name": "seniorityDate"
+									"name": "seniorityDate",
+									"type": "String"
 								}
 							},
 							{
@@ -233,7 +240,8 @@
 									"path": "['startDate']"
 								},
 								"sink": {
-									"name": "startDate"
+									"name": "startDate",
+									"type": "String"
 								}
 							},
 							{
@@ -241,7 +249,8 @@
 									"path": "['hiringNotCompleted']"
 								},
 								"sink": {
-									"name": "hiringNotCompleted"
+									"name": "hiringNotCompleted",
+									"type": "String"
 								}
 							},
 							{
@@ -249,7 +258,8 @@
 									"path": "['isECRecord']"
 								},
 								"sink": {
-									"name": "isECRecord"
+									"name": "isECRecord",
+									"type": "String"
 								}
 							},
 							{
@@ -257,7 +267,8 @@
 									"path": "['customString20']"
 								},
 								"sink": {
-									"name": "customString20"
+									"name": "customString20",
+									"type": "String"
 								}
 							},
 							{
@@ -265,7 +276,8 @@
 									"path": "['prevEmployeeId']"
 								},
 								"sink": {
-									"name": "prevEmployeeId"
+									"name": "prevEmployeeId",
+									"type": "String"
 								}
 							},
 							{
@@ -273,7 +285,8 @@
 									"path": "['regretTermination']"
 								},
 								"sink": {
-									"name": "regretTermination"
+									"name": "regretTermination",
+									"type": "String"
 								}
 							},
 							{
@@ -281,7 +294,8 @@
 									"path": "['createdOn']"
 								},
 								"sink": {
-									"name": "createdOn"
+									"name": "createdOn",
+									"type": "String"
 								}
 							},
 							{
@@ -289,7 +303,8 @@
 									"path": "['originalStartDate']"
 								},
 								"sink": {
-									"name": "originalStartDate"
+									"name": "originalStartDate",
+									"type": "String"
 								}
 							},
 							{
@@ -297,7 +312,8 @@
 									"path": "['customDate6']"
 								},
 								"sink": {
-									"name": "customDate6"
+									"name": "customDate6",
+									"type": "String"
 								}
 							},
 							{
@@ -305,7 +321,8 @@
 									"path": "['customString19']"
 								},
 								"sink": {
-									"name": "customString19"
+									"name": "customString19",
+									"type": "String"
 								}
 							},
 							{
@@ -313,7 +330,8 @@
 									"path": "['assignmentClass']"
 								},
 								"sink": {
-									"name": "assignmentClass"
+									"name": "assignmentClass",
+									"type": "String"
 								}
 							},
 							{
@@ -321,7 +339,8 @@
 									"path": "['lastModifiedBy']"
 								},
 								"sink": {
-									"name": "lastModifiedBy"
+									"name": "lastModifiedBy",
+									"type": "String"
 								}
 							},
 							{
@@ -329,7 +348,8 @@
 									"path": "['lastModifiedOn']"
 								},
 								"sink": {
-									"name": "lastModifiedOn"
+									"name": "lastModifiedOn",
+									"type": "String"
 								}
 							},
 							{
@@ -337,7 +357,8 @@
 									"path": "['createdBy']"
 								},
 								"sink": {
-									"name": "createdBy"
+									"name": "createdBy",
+									"type": "String"
 								}
 							},
 							{
@@ -345,7 +366,8 @@
 									"path": "['paymentInformationNav']['__deferred']['uri']"
 								},
 								"sink": {
-									"name": "d_results'][0]['paymentInformationNav___deferred_uri"
+									"name": "d_results'][0]['paymentInformationNav___deferred_uri",
+									"type": "String"
 								}
 							},
 							{

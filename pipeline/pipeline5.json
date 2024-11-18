@@ -42,7 +42,8 @@
 									"path": "['__metadata']['uri']"
 								},
 								"sink": {
-									"name": "d_results'][0]['__metadata_uri"
+									"name": "uri",
+									"type": "String"
 								}
 							},
 							{
@@ -50,7 +51,8 @@
 									"path": "['__metadata']['type']"
 								},
 								"sink": {
-									"name": "type"
+									"name": "type",
+									"type": "String"
 								}
 							},
 							{
@@ -58,7 +60,8 @@
 									"path": "['personIdExternal']"
 								},
 								"sink": {
-									"name": "personIdExternal"
+									"name": "personIdExternal",
+									"type": "String"
 								}
 							},
 							{
@@ -66,7 +69,8 @@
 									"path": "['userId']"
 								},
 								"sink": {
-									"name": "userId"
+									"name": "userId",
+									"type": "String"
 								}
 							},
 							{
@@ -74,7 +78,8 @@
 									"path": "['lastModifiedDateTime']"
 								},
 								"sink": {
-									"name": "lastModifiedDateTime"
+									"name": "lastModifiedDateTime",
+									"type": "DateTime"
 								}
 							},
 							{
@@ -82,7 +87,8 @@
 									"path": "['notes']"
 								},
 								"sink": {
-									"name": "notes"
+									"name": "notes",
+									"type": "String"
 								}
 							},
 							{
@@ -90,7 +96,8 @@
 									"path": "['endDate']"
 								},
 								"sink": {
-									"name": "endDate"
+									"name": "endDate",
+									"type": "DateTime"
 								}
 							},
 							{
@@ -98,7 +105,8 @@
 									"path": "['bonusPayExpirationDate']"
 								},
 								"sink": {
-									"name": "bonusPayExpirationDate"
+									"name": "bonusPayExpirationDate",
+									"type": "DateTime"
 								}
 							},
 							{
@@ -106,7 +114,8 @@
 									"path": "['createdDateTime']"
 								},
 								"sink": {
-									"name": "createdDateTime"
+									"name": "createdDateTime",
+									"type": "DateTime"
 								}
 							},
 							{
@@ -114,7 +123,8 @@
 									"path": "['employmentId']"
 								},
 								"sink": {
-									"name": "employmentId"
+									"name": "employmentId",
+									"type": "String"
 								}
 							},
 							{
@@ -122,7 +132,8 @@
 									"path": "['isContingentWorker']"
 								},
 								"sink": {
-									"name": "isContingentWorker"
+									"name": "isContingentWorker",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -130,7 +141,8 @@
 									"path": "['customLong11']"
 								},
 								"sink": {
-									"name": "customLong11"
+									"name": "customLong11",
+									"type": "String"
 								}
 							},
 							{
@@ -138,7 +150,8 @@
 									"path": "['customLong14']"
 								},
 								"sink": {
-									"name": "customLong14"
+									"name": "customLong14",
+									"type": "String"
 								}
 							},
 							{
@@ -146,7 +159,8 @@
 									"path": "['okToRehire']"
 								},
 								"sink": {
-									"name": "okToRehire"
+									"name": "okToRehire",
+									"type": "String"
 								}
 							},
 							{
@@ -154,7 +168,8 @@
 									"path": "['assignmentIdExternal']"
 								},
 								"sink": {
-									"name": "assignmentIdExternal"
+									"name": "assignmentIdExternal",
+									"type": "String"
 								}
 							},
 							{
@@ -479,7 +494,7 @@
 							}
 						],
 						"collectionReference": "$['d']['results']",
-						"mapComplexValuesToString": false
+						"mapComplexValuesToString": true
 					}
 				},
 				"inputs": [

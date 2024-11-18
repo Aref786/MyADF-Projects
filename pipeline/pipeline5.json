@@ -36,6 +36,449 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['__metadata']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['__metadata_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['__metadata']['type']"
+								},
+								"sink": {
+									"name": "type"
+								}
+							},
+							{
+								"source": {
+									"path": "['personIdExternal']"
+								},
+								"sink": {
+									"name": "personIdExternal"
+								}
+							},
+							{
+								"source": {
+									"path": "['userId']"
+								},
+								"sink": {
+									"name": "userId"
+								}
+							},
+							{
+								"source": {
+									"path": "['lastModifiedDateTime']"
+								},
+								"sink": {
+									"name": "lastModifiedDateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['notes']"
+								},
+								"sink": {
+									"name": "notes"
+								}
+							},
+							{
+								"source": {
+									"path": "['endDate']"
+								},
+								"sink": {
+									"name": "endDate"
+								}
+							},
+							{
+								"source": {
+									"path": "['bonusPayExpirationDate']"
+								},
+								"sink": {
+									"name": "bonusPayExpirationDate"
+								}
+							},
+							{
+								"source": {
+									"path": "['createdDateTime']"
+								},
+								"sink": {
+									"name": "createdDateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "['employmentId']"
+								},
+								"sink": {
+									"name": "employmentId"
+								}
+							},
+							{
+								"source": {
+									"path": "['isContingentWorker']"
+								},
+								"sink": {
+									"name": "isContingentWorker"
+								}
+							},
+							{
+								"source": {
+									"path": "['customLong11']"
+								},
+								"sink": {
+									"name": "customLong11"
+								}
+							},
+							{
+								"source": {
+									"path": "['customLong14']"
+								},
+								"sink": {
+									"name": "customLong14"
+								}
+							},
+							{
+								"source": {
+									"path": "['okToRehire']"
+								},
+								"sink": {
+									"name": "okToRehire"
+								}
+							},
+							{
+								"source": {
+									"path": "['assignmentIdExternal']"
+								},
+								"sink": {
+									"name": "assignmentIdExternal"
+								}
+							},
+							{
+								"source": {
+									"path": "['customDouble11']"
+								},
+								"sink": {
+									"name": "customDouble11"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString81']"
+								},
+								"sink": {
+									"name": "customString81"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString82']"
+								},
+								"sink": {
+									"name": "customString82"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString83']"
+								},
+								"sink": {
+									"name": "customString83"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString84']"
+								},
+								"sink": {
+									"name": "customString84"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString85']"
+								},
+								"sink": {
+									"name": "customString85"
+								}
+							},
+							{
+								"source": {
+									"path": "['seniorityDate']"
+								},
+								"sink": {
+									"name": "seniorityDate"
+								}
+							},
+							{
+								"source": {
+									"path": "['startDate']"
+								},
+								"sink": {
+									"name": "startDate"
+								}
+							},
+							{
+								"source": {
+									"path": "['hiringNotCompleted']"
+								},
+								"sink": {
+									"name": "hiringNotCompleted"
+								}
+							},
+							{
+								"source": {
+									"path": "['isECRecord']"
+								},
+								"sink": {
+									"name": "isECRecord"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString20']"
+								},
+								"sink": {
+									"name": "customString20"
+								}
+							},
+							{
+								"source": {
+									"path": "['prevEmployeeId']"
+								},
+								"sink": {
+									"name": "prevEmployeeId"
+								}
+							},
+							{
+								"source": {
+									"path": "['regretTermination']"
+								},
+								"sink": {
+									"name": "regretTermination"
+								}
+							},
+							{
+								"source": {
+									"path": "['createdOn']"
+								},
+								"sink": {
+									"name": "createdOn"
+								}
+							},
+							{
+								"source": {
+									"path": "['originalStartDate']"
+								},
+								"sink": {
+									"name": "originalStartDate"
+								}
+							},
+							{
+								"source": {
+									"path": "['customDate6']"
+								},
+								"sink": {
+									"name": "customDate6"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString19']"
+								},
+								"sink": {
+									"name": "customString19"
+								}
+							},
+							{
+								"source": {
+									"path": "['assignmentClass']"
+								},
+								"sink": {
+									"name": "assignmentClass"
+								}
+							},
+							{
+								"source": {
+									"path": "['lastModifiedBy']"
+								},
+								"sink": {
+									"name": "lastModifiedBy"
+								}
+							},
+							{
+								"source": {
+									"path": "['lastModifiedOn']"
+								},
+								"sink": {
+									"name": "lastModifiedOn"
+								}
+							},
+							{
+								"source": {
+									"path": "['createdBy']"
+								},
+								"sink": {
+									"name": "createdBy"
+								}
+							},
+							{
+								"source": {
+									"path": "['paymentInformationNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['paymentInformationNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString84Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString84Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['photoNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['photoNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['compInfoNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['compInfoNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['onboardingInfoNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['onboardingInfoNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString19Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString19Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString81Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString81Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString85Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString85Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString20Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString20Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['empJobRelationshipNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['empJobRelationshipNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['personNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['personNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString82Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString82Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['empWorkPermitNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['empWorkPermitNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['userNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['userNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['jobInfoNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['jobInfoNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['customString83Nav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['customString83Nav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['wfRequestNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['wfRequestNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['costDistributionNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['costDistributionNav___deferred_uri"
+								}
+							},
+							{
+								"source": {
+									"path": "['empPayCompNonRecurringNav']['__deferred']['uri']"
+								},
+								"sink": {
+									"name": "d_results'][0]['empPayCompNonRecurringNav___deferred_uri"
+								}
+							}
+						],
+						"collectionReference": "$['d']['results']",
 						"mapComplexValuesToString": false
 					}
 				},
